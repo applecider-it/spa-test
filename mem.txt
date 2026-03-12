@@ -4,3 +4,23 @@ cd /home/owner/workspace/tmp/spa_test
 
 -----------------------------------
 
+next
+
+cd /home/owner/workspace/tmp/spa_test/next
+
+npm run dev
+
+
+http://localhost:3000/
+
+-----
+
+build
+
+npm run build
+
+phpサーバーで確認
+
+php -S localhost:3001 -t ./out
+
+http://localhost:3001/
