@@ -27,15 +27,31 @@ class DispatchService
         } else if ($uri === '/auth') {
             //usleep(1000000 * 0.5);
 
-            $user = [
-                'name' => 'テスト',
-            ];
-            //$user = null;
+            $userId = $_SESSION['user_id'] ?? null;
+
+            $user = null;
+            if ($userId) {
+                $user = [
+                    'name' => 'テスト',
+                ];
+            }
             $data = [
                 'user' => $user,
             ];
 
             return $data;
+        } else if ($uri === '/login') {
+            $_SESSION['user_id'] = 1;
+
+            return [
+                'status' => true,
+            ];
+        } else if ($uri === '/logout') {
+            unset($_SESSION['user_id']);
+
+            return [
+                'status' => true,
+            ];
         }
 
 

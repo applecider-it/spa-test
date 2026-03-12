@@ -23,15 +23,22 @@ export default function ClientLayout({
     <>
       <div className="flex items-center justify-between bg-gray-100">
         <div className="space-x-3 p-5">
-          <Link href="/" prefetch={false} className="text-blue-500 underline">
+          <Link href="/" prefetch={false} className="app-link-normal">
             Top
           </Link>
           <Link
             href="/development"
             prefetch={false}
-            className="text-blue-500 underline"
+            className="app-link-normal"
           >
             開発者向けページ
+          </Link>
+          <Link
+            href="/profile"
+            prefetch={false}
+            className="app-link-normal"
+          >
+            プロファイル
           </Link>
         </div>
         <div className="p-5">

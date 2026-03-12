@@ -15,4 +15,9 @@
   .app-h2 {
     @apply text-3xl font-bold my-10;
   }
+
+  /* 通常のリンク */
+  .app-link-normal {
+    @apply text-blue-500 underline;
+  }
 }
