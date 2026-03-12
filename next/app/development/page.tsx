@@ -4,6 +4,7 @@ import LoginTest from '@/components/development/LoginTest';
 
 import ClientLayout from '@/components/layouts/ClientLayout';
 import { useAuth } from '@/hooks/useAuth';
+import LoadingBlock from '@/components/ui/LoadingBlock';
 
 export default function Development() {
   console.log('Development');
@@ -17,7 +18,7 @@ export default function Development() {
       <div>
         <h2 className='app-h2'>Development</h2>
 
-        {auth.loading ? <>.....</> : <div className={blockClass}><SendTest /></div>}
+        {auth.loading ? <LoadingBlock height="10rem" /> : <div className={blockClass}><SendTest /></div>}
 
         <div className={blockClass}><LoginTest /></div>
       </div>

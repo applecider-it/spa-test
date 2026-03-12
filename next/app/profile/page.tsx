@@ -4,6 +4,7 @@ import Image from 'next/image';
 import ClientLayout from '@/components/layouts/ClientLayout';
 import { useAuth } from '@/hooks/useAuth';
 import { useEffect, useState } from 'react';
+import LoadingBlock from '@/components/ui/LoadingBlock';
 
 export default function Home() {
   const [text, setText] = useState('');
@@ -23,7 +24,7 @@ export default function Home() {
 
       </div>
       {auth.loading ? (
-        <>.....</>
+        <LoadingBlock />
       ) : (
         <div>
           <div>text: {text}</div>
