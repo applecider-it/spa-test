@@ -1,32 +1,19 @@
 'use client';
-import React, { useState, useEffect } from 'react';
-import { sendRest } from '@/services/api/rest';
+import React from 'react';
 import Link from 'next/link';
-import { AuthResult } from '@/types/types';
+import { useAuth } from '@/hooks/useAuth';
 
+/**
+ * レイアウト
+ */
 export default function ClientLayout({
   children,
-  callback,
+  auth,
 }: Readonly<{
   children: React.ReactNode;
-  callback?: () => void;
+  auth: ReturnType<typeof useAuth>;
 }>) {
-  console.log('ClientLayout', callback);
-
-  const authCheck = async () => {
-    const data = {};
-    const uri = '/auth';
-
-    const res = await sendRest<AuthResult>(uri, data);
-
-    console.log('res', res);
-  };
-
-  useEffect(() => {
-    console.log('ClientLayout useEffect');
-
-    authCheck();
-  }, []);
+  console.log('ClientLayout auth', auth);
 
   return (
     <>
@@ -41,6 +28,11 @@ export default function ClientLayout({
         >
           開発者向けページ
         </Link>
+        {auth.loading ? (
+          <span>...</span>
+        ) : (
+          <span>{auth.user ? <>{auth.user.name}</> : <>Error</>}</span>
+        )}
       </div>
       {children}
     </>

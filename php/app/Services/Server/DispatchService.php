@@ -26,7 +26,6 @@ class DispatchService
             return $data;
         } else if ($uri === '/auth') {
             $data = [
-                'status' => 'ok',
                 'user' => [
                     'name' => 'テスト',
                 ],

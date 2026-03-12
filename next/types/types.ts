@@ -1,6 +1,7 @@
+export type User = {
+  name: string;
+};
+
 export type AuthResult = {
-  status: string;
-  user: {
-    name: string;
-  } | null;
+  user: User | null;
 };

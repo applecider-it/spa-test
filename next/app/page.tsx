@@ -1,16 +1,16 @@
 'use client';
-import Image from 'next/image';
 
+import Image from 'next/image';
 import ClientLayout from '@/components/layouts/ClientLayout';
+import { useAuth } from '@/hooks/useAuth';
 
 export default function Home() {
   console.log('Home');
-  const callback = () => {
 
-  };
-  
+  const auth = useAuth();
+
   return (
-    <ClientLayout callback={callback}>
+    <ClientLayout auth={auth}>
       <div>
         Home
         <Image
