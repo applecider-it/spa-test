@@ -33,6 +33,7 @@ class RouterService
 
         // OPTIONS リクエストは事前検証（preflight）用なので早期終了
         if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+            Log::output("OPTIONS Exit");
             http_response_code(200);
             exit();
         }

@@ -10,7 +10,7 @@ namespace App\Services\Output;
 class LogService
 {
     /** ログ出力 */
-    public static function output(string $message, ?array $context): void
+    public static function output(string $message, ?array $context = null): void
     {
         $date = date('Y-m-d H:i:s');
 

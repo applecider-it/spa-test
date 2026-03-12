@@ -25,7 +25,7 @@ class DispatchService
 
             return $data;
         } else if ($uri === '/auth') {
-            //usleep(1000000 * 0.5);
+            usleep(1000000 * 0.3);
 
             $userId = $_SESSION['user_id'] ?? null;
 
@@ -53,7 +53,6 @@ class DispatchService
                 'status' => true,
             ];
         }
-
 
         return [
             'error' => 'invalid uri',

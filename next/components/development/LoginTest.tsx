@@ -24,7 +24,8 @@ export default function LoginTest() {
 
     console.log('res', res);
 
-    router.push('/');
+    //router.push('/');
+    location.href = "/";
   };
 
   return (

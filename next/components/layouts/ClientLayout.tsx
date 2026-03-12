@@ -33,11 +33,7 @@ export default function ClientLayout({
           >
             開発者向けページ
           </Link>
-          <Link
-            href="/profile"
-            prefetch={false}
-            className="app-link-normal"
-          >
+          <Link href="/profile" prefetch={false} className="app-link-normal">
             プロファイル
           </Link>
         </div>
