@@ -1,6 +1,8 @@
 import React from 'react';
 import Link from 'next/link';
 
+import Auth from './server-layout/Auth'
+
 /**
  * レイアウト
  */
@@ -26,7 +28,7 @@ export default function ServerLayout({
           </Link>
         </div>
         <div className="space-x-3 px-7 py-8">
-          <span>....</span>
+          <Auth />
         </div>
       </div>
 
