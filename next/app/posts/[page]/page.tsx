@@ -49,7 +49,7 @@ export default async function Posts({
               key={post.slug}
               className="block"
             >
-              <article className="border-2 p-5">
+              <article className="border-2 p-5 border-gray-300 transition hover:bg-gray-50">
                 <h3 className="app-h3">{post.title}</h3>
                 <div className="my-3">{post.description}</div>
                 <div className="text-right text-gray-500 text-sm">
