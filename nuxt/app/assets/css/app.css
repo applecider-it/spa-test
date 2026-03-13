@@ -1,0 +1,45 @@
+/* ボタン */
+.app-btn-primary {
+  @apply bg-blue-500 text-white px-4 py-2 rounded;
+}
+
+/* テキストボックス */
+.app-form-input {
+  @apply border px-2 py-1 rounded;
+}
+
+/* タイトル */
+.app-h2 {
+  @apply text-3xl font-bold my-10;
+}
+.app-h3 {
+  @apply text-2xl font-bold my-3;
+}
+
+/* 通常のリンク */
+.app-link-normal {
+  @apply text-blue-500 underline;
+}
+
+/* 投稿内容 */
+.app-post-content-container {
+  h1 {
+    @apply text-gray-500 text-xl my-4;
+  }
+
+  h2 {
+    @apply text-gray-500 text-lg my-3;
+  }
+
+  li {
+    @apply text-gray-400 ml-2;
+  }
+
+  p {
+    @apply my-3;
+  }
+
+  img {
+    @apply my-4 border-4 border-gray-300;
+  }
+}

@@ -7,3 +7,4 @@ npm install velite
 
 npm create nuxt@latest nuxt
 
+npm install -D @nuxtjs/tailwindcss

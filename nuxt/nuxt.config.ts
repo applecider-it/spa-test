@@ -7,4 +7,5 @@ export default defineNuxtConfig({
       routes: ['/article/hello',],
     },
   },
+  modules: ['@nuxtjs/tailwindcss']
 });
