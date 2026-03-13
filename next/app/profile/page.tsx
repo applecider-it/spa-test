@@ -24,7 +24,7 @@ export default function Home() {
         <h2 className="app-h2">Profile</h2>
       </div>
       {auth.loading ? (
-        <LoadingBlock />
+        <LoadingBlock height="12rem" />
       ) : (
         <div className="space-y-5">
           <div>
