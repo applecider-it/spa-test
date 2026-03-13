@@ -5,3 +5,5 @@ npm install axios
 
 npm install velite
 
+npm create nuxt@latest nuxt
+

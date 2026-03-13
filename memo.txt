@@ -53,3 +53,13 @@ cd /home/owner/workspace/tmp/spa_test/next
 php -S localhost:3001 -t ./out
 
 http://localhost:3001/
+
+-----------------------------------
+
+nuxt
+
+cd /home/owner/workspace/tmp/spa_test/nuxt
+
+npm run dev
+
+http://localhost:3000/
