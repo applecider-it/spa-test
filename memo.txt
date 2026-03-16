@@ -7,8 +7,8 @@ cd /home/owner/workspace/tmp/spa_test
 port
 
 api: 4000
-next: 3000
-next動作確認: 3001
+nuxt: 3000
+nuxt動作確認: 3001
 
 -----------------------------------
 
@@ -19,40 +19,6 @@ cd /home/owner/workspace/tmp/spa_test/php
 php -S localhost:4000 -t ./public
 
 http://localhost:4000/
-
------------------------------------
-
-next
-
-cd /home/owner/workspace/tmp/spa_test/next
-
-npm run dev
-
-
-マークダウンをjsonに変換
-
-npm run velite
-
-
-http://localhost:3000/
-
------
-
-build
-
-cd /home/owner/workspace/tmp/spa_test/next
-
-npm run build
-
------
-
-phpサーバーで確認
-
-cd /home/owner/workspace/tmp/spa_test/next
-
-php -S localhost:3001 -t ./out
-
-http://localhost:3001/
 
 -----------------------------------
 
