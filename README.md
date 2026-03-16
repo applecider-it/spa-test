@@ -2,7 +2,6 @@
 
 ## 実装内容
 
-- Next (SSG)
 - Nuxt (SSG)
 - PHPのダミーのAPI
 - PHPの動作確認用のサーバー
