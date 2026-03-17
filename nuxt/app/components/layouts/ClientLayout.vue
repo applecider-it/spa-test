@@ -1,9 +1,15 @@
 <template>
   <div>
     <!-- ヘッダー -->
-    <div class="flex items-center justify-between bg-gray-100">
+    <div
+      class="flex items-center justify-between bg-gradient-to-br from-indigo-100 via-indigo-100 to-blue-100"
+    >
       <div class="space-x-3 px-7 py-8">
-        <span class="text-xl pr-5">SPA Test</span>
+        <div
+          class="inline-block mr-4 text-2xl font-bold bg-gradient-to-r from-indigo-500 to-purple-500 bg-clip-text text-transparent"
+        >
+          MySite
+        </div>
         <NuxtLink to="/" class="text-gray-500 underline">Top</NuxtLink>
         <NuxtLink to="/posts/1" class="text-gray-500 underline">Blog</NuxtLink>
       </div>
@@ -36,23 +42,25 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
-import { useAuth } from '@/composables/useAuth'
-import LoadingLine from '@/components/ui/LoadingLine.vue'
-import { useRouter } from 'vue-router'
+import { computed } from 'vue';
+import { useAuth } from '@/composables/useAuth';
+import LoadingLine from '@/components/ui/LoadingLine.vue';
+import { useRouter } from 'vue-router';
 
 // props
 interface Props {
-  needAuth?: boolean
-  auth: ReturnType<typeof useAuth>
+  needAuth?: boolean;
+  auth: ReturnType<typeof useAuth>;
 }
 
-const props = defineProps<Props>()
+const props = defineProps<Props>();
 
-const needAuth = props.needAuth ?? false
+const needAuth = props.needAuth ?? false;
 
-console.log('needAuth', needAuth)
+console.log('needAuth', needAuth);
 
 // 認証エラー判定
-const authError = computed(() => needAuth && !props.auth.loading.value && !props.auth.user.value)
+const authError = computed(
+  () => needAuth && !props.auth.loading.value && !props.auth.user.value,
+);
 </script>
