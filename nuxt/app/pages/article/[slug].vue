@@ -1,5 +1,5 @@
 <template>
-  <ClientLayout :auth="auth">
+  <AppLayout :auth="auth">
     <article>
       <h2 class="app-h2">{{ post.title }}</h2>
       <div class="text-right text-gray-500 text-sm mt-5">
@@ -11,11 +11,11 @@
         v-html="post.body"
       />
     </article>
-  </ClientLayout>
+  </AppLayout>
 </template>
 
 <script setup lang="ts">
-import ClientLayout from '@/components/layouts/ClientLayout.vue'
+import AppLayout from '@/components/layouts/AppLayout.vue'
 import { posts, type Post } from '@/../.velite'
 import { useRoute, navigateTo } from '#app'
 import { toLocaleString } from '@/services/data/datetime'

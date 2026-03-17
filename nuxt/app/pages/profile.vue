@@ -1,5 +1,5 @@
 <template>
-  <ClientLayout :auth="auth" :needAuth="true">
+  <AppLayout :auth="auth" :needAuth="true">
     <div>
       <h2 class="app-h2">Profile</h2>
     </div>
@@ -18,12 +18,12 @@
         <div>{{ desc }}</div>
       </div>
     </div>
-  </ClientLayout>
+  </AppLayout>
 </template>
 
 <script setup lang="ts">
 import { ref, watch } from 'vue'
-import ClientLayout from '@/components/layouts/ClientLayout.vue'
+import AppLayout from '@/components/layouts/AppLayout.vue'
 import LoadingBlock from '@/components/ui/LoadingBlock.vue'
 import { useAuth } from '@/composables/useAuth'
 

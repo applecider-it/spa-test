@@ -14,7 +14,11 @@
         <NuxtLink to="/posts/1" class="text-gray-500 underline">Blog</NuxtLink>
       </div>
       <div class="space-x-3 px-7 py-8">
-        <LoadingLine v-if="auth.loading.value" />
+        <span
+          v-if="auth.loading.value"
+          class="border-2 border-gray-300 bg-gray-200 inline-block rounded"
+          :style="{ width: '7rem', height: '0.9rem' }"
+        ></span>
         <template v-else>
           <NuxtLink
             v-if="auth.user.value"
@@ -44,8 +48,6 @@
 <script setup lang="ts">
 import { computed } from 'vue';
 import { useAuth } from '@/composables/useAuth';
-import LoadingLine from '@/components/ui/LoadingLine.vue';
-import { useRouter } from 'vue-router';
 
 // props
 interface Props {

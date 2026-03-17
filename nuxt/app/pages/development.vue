@@ -1,5 +1,5 @@
 <template>
-  <ClientLayout :auth="auth">
+  <AppLayout :auth="auth">
     <div>
       <h2 class="app-h2">Development</h2>
 
@@ -25,12 +25,12 @@
         </NuxtLink>
       </div>
     </div>
-  </ClientLayout>
+  </AppLayout>
 </template>
 
 <script setup lang="ts">
 import { ref, watch } from 'vue'
-import ClientLayout from '@/components/layouts/ClientLayout.vue'
+import AppLayout from '@/components/layouts/AppLayout.vue'
 import LoadingBlock from '@/components/ui/LoadingBlock.vue'
 import SendTest from '@/components/development/SendTest.vue'
 import LoginTest from '@/components/development/LoginTest.vue'

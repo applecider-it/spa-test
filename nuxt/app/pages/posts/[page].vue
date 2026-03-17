@@ -1,5 +1,5 @@
 <template>
-  <ClientLayout :auth="auth">
+  <AppLayout :auth="auth">
     <div>
       <h2 class="app-h2">Blog</h2>
 
@@ -20,14 +20,14 @@
         </NuxtLink>
       </div>
 
-      <ServerPaginate :page="pageNum" :info="info" />
+      <Pagination :page="pageNum" :info="info" />
     </div>
-  </ClientLayout>
+  </AppLayout>
 </template>
 
 <script setup lang="ts">
-import ClientLayout from '@/components/layouts/ClientLayout.vue'
-import ServerPaginate from '@/components/nav/ServerPaginate.vue'
+import AppLayout from '@/components/layouts/AppLayout.vue'
+import Pagination from '@/components/nav/Pagination.vue'
 
 import { type Post, posts } from '@/../.velite'
 import { getPageInfo } from '@/services/nav/paginate'
