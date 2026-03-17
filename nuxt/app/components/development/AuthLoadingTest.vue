@@ -20,7 +20,6 @@
 </template>
 
 <script setup lang="ts">
-import { useAuth } from '@/composables/useAuth'
 import LoadingBlock from '@/components/ui/LoadingBlock.vue'
 
 interface Props {

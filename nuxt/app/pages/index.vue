@@ -12,7 +12,6 @@
 
 <script setup lang="ts">
 import AppLayout from '@/components/layouts/AppLayout.vue';
-import { useAuth } from '@/composables/useAuth';
 
 const auth = useAuth();
 

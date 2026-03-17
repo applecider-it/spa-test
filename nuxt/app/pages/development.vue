@@ -35,7 +35,6 @@ import LoadingBlock from '@/components/ui/LoadingBlock.vue'
 import SendTest from '@/components/development/SendTest.vue'
 import LoginTest from '@/components/development/LoginTest.vue'
 import AuthLoadingTest from '@/components/development/AuthLoadingTest.vue'
-import { useAuth } from '@/composables/useAuth'
 
 // 認証
 const auth = useAuth()

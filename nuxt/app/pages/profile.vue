@@ -25,7 +25,6 @@
 import { ref, watch } from 'vue'
 import AppLayout from '@/components/layouts/AppLayout.vue'
 import LoadingBlock from '@/components/ui/LoadingBlock.vue'
-import { useAuth } from '@/composables/useAuth'
 
 // 認証
 const auth = useAuth()
