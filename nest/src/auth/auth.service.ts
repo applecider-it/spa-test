@@ -8,7 +8,7 @@ import type { Session } from 'express-session';
 export class AuthService {
   /** ログイン処理 */
   login(session: Session) {
-    session['user'] = { id: 1, name: 'Test' };
+    session['user'] = { id: 1, name: 'テスト' };
     return { message: 'logged in' };
   }
 

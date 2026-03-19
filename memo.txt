@@ -14,10 +14,6 @@ nuxt動作確認: 3001
 
 api 
 
-cd /home/owner/workspace/tmp/spa_test/php
-
-php -S localhost:4000 -t ./public
-
 
 cd /home/owner/workspace/tmp/spa_test/nest
 
@@ -52,8 +48,6 @@ npm run generate
 動作確認用サーバーで確認
 
 cd /home/owner/workspace/tmp/spa_test/nuxt/.output/public
-
-php -S localhost:3001 -t .
 
 serve . -l 3001
 
