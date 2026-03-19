@@ -13,3 +13,6 @@ npm install -D @nuxtjs/tailwindcss
 
 npm i -g @nestjs/cli
 nest new myapp
+
+npm install express-session cookie-parser
+npm install -D @types/express-session @types/cookie-parser
