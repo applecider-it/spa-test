@@ -49,11 +49,13 @@ npm run generate
 
 -----
 
-phpサーバーで確認
+動作確認用サーバーで確認
 
-cd /home/owner/workspace/tmp/spa_test/nuxt
+cd /home/owner/workspace/tmp/spa_test/nuxt/.output/public
 
-php -S localhost:3001 -t ./.output/public
+php -S localhost:3001 -t .
+
+serve . -l 3001
 
 http://localhost:3001/
 

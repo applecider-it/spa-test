@@ -22,3 +22,6 @@ nest g controller auth
 nest g controller development
 
 nest g service auth
+
+npm install -g serve
+
