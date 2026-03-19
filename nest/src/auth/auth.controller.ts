@@ -12,8 +12,8 @@ export class AuthController {
   }
 
   @Post('me')
-  me(@Req() req: Request) {
-    return this.authService.me(req.session);
+  async me(@Req() req: Request) {
+    return await this.authService.me(req.session);
   }
 
   @Post('logout')

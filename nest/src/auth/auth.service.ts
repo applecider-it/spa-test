@@ -1,6 +1,8 @@
 import { Injectable } from '@nestjs/common';
 import type { Session } from 'express-session';
 
+import { setTimeout } from 'timers/promises';
+
 /**
  * 認証サービス
  */
@@ -13,7 +15,8 @@ export class AuthService {
   }
 
   /** 認証処理 */
-  me(session: Session) {
+  async me(session: Session) {
+    await setTimeout(1000 * 0);
     return { user: session['user'] || null };
   }
 
