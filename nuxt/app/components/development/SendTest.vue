@@ -21,7 +21,7 @@ const result = ref('')
 
 const handleSubmit = async () => {
   const data = { message: message.value }
-  const url = '/send-test'
+  const url = '/development/send-test'
 
   try {
     const res = await sendRest<{ message: string }>(url, data)
