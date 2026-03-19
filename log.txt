@@ -8,3 +8,8 @@ npm install velite
 npm create nuxt@latest nuxt
 
 npm install -D @nuxtjs/tailwindcss
+
+-----------------------------------
+
+npm i -g @nestjs/cli
+nest new myapp
