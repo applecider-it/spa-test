@@ -1,4 +1,5 @@
-import { Controller, Post, Body } from '@nestjs/common';
+import { Controller, Post, Body, Req } from '@nestjs/common';
+import type { Request } from 'express';
 
 class SendTestDto {
   message: string;
@@ -7,7 +8,10 @@ class SendTestDto {
 @Controller('development')
 export class DevelopmentController {
   @Post('send-test')
-  sendTest(@Body() body: SendTestDto) {
-    return { message: 'Message: ' + body.message };
+  sendTest(@Body() body: SendTestDto, @Req() req: Request) {
+    return {
+      message: 'Message: ' + body.message,
+      user: req.session['user'] || null,
+    };
   }
 }
