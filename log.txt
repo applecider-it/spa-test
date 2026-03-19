@@ -16,3 +16,5 @@ nest new myapp
 
 npm install express-session cookie-parser
 npm install -D @types/express-session @types/cookie-parser
+
+nest g controller auth

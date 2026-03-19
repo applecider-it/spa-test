@@ -17,7 +17,7 @@ const router = useRouter()
 
 const execLogin = async () => {
   const data = {}
-  const uri = '/login'
+  const uri = '/auth/login'
 
   try {
     const res = await sendRest<{ message: string }>(uri, data)
@@ -32,7 +32,7 @@ const execLogin = async () => {
 
 const execLogout = async () => {
   const data = {}
-  const uri = '/logout'
+  const uri = '/auth/logout'
 
   try {
     const res = await sendRest<{ message: string }>(uri, data)

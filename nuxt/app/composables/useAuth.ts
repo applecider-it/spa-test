@@ -5,7 +5,7 @@ import type { AuthResult, User } from '@/types/types'
 /** 認証チェック */
 const authCheck = async (): Promise<AuthResult> => {
   const data = {}
-  const uri = '/auth'
+  const uri = '/auth/me'
 
   const res = await sendRest<AuthResult>(uri, data)
   console.log('res', res)

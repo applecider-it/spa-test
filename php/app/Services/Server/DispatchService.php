@@ -26,13 +26,13 @@ class DispatchService
 
     public function exec(): array
     {
-        if ($this->uri === '/send-test') {
+        if ($this->uri === '/development/send-test') {
             return $this->execDevelopmentSendTest();
-        } else if ($this->uri === '/auth') {
+        } else if ($this->uri === '/auth/me') {
             return $this->execAuth();
-        } else if ($this->uri === '/login') {
+        } else if ($this->uri === '/auth/login') {
             return $this->execAuthLogin();
-        } else if ($this->uri === '/logout') {
+        } else if ($this->uri === '/auth/logout') {
             return $this->execAuthLogout();
         }
 

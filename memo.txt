@@ -18,6 +18,11 @@ cd /home/owner/workspace/tmp/spa_test/php
 
 php -S localhost:4000 -t ./public
 
+
+cd /home/owner/workspace/tmp/spa_test/nest
+
+npm run start:dev
+
 http://localhost:4000/
 
 -----------------------------------
