@@ -1,5 +1,5 @@
 
-cd /home/owner/workspace/tmp/spa_test
+cd ~/workspace/github/spa-test
 
 
 -----------------------------------
@@ -15,7 +15,7 @@ nuxt動作確認: 3001
 api 
 
 
-cd /home/owner/workspace/tmp/spa_test/nest
+cd ~/workspace/github/spa-test/nest
 
 npm run start:dev
 
@@ -25,7 +25,7 @@ http://localhost:4000/
 
 nuxt
 
-cd /home/owner/workspace/tmp/spa_test/nuxt
+cd ~/workspace/github/spa-test/nuxt
 
 npm run dev
 
@@ -39,7 +39,7 @@ http://localhost:3000/
 
 build
 
-cd /home/owner/workspace/tmp/spa_test/nuxt
+cd ~/workspace/github/spa-test/nuxt
 
 npm run generate
 
@@ -47,7 +47,7 @@ npm run generate
 
 動作確認用サーバーで確認
 
-cd /home/owner/workspace/tmp/spa_test/nuxt/.output/public
+cd ~/workspace/github/spa-test/nuxt/.output/public
 
 serve . -l 3001
 
