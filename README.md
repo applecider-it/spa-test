@@ -2,7 +2,7 @@
 
 あくまで実装例で、利用は非推奨です。
 
-通常のアプリケーションでは、`laravel_test`, `rails_test`のような、MPA+island(Vue)までが無難。
+通常のアプリケーションでは、`laravel-app`, `rails-app`のような、MPA+island(Vue)までが無難。
 
 ## 実装内容
 
