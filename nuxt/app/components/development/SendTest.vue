@@ -10,9 +10,14 @@ const handleSubmit = async () => {
   const url = '/development/send-test';
 
   try {
-    const res = await sendRest<{ message: string }>(url, data);
+    const res = await sendRest<{ message: string; user: any }>(url, data);
+
     console.log('res', res);
-    result.value = res.message;
+
+    let message = res.message;
+    if (res.user) message += ' by ' + res.user.name;
+
+    result.value = message;
   } catch (e) {
     console.error(e);
     result.value = '送信に失敗しました';
