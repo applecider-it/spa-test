@@ -1,3 +1,24 @@
+<script setup lang="ts">
+import { computed } from 'vue';
+
+// props
+interface Props {
+  needAuth?: boolean;
+  auth: ReturnType<typeof useAuth>;
+}
+
+const props = defineProps<Props>();
+
+const needAuth = props.needAuth ?? false;
+
+console.log('needAuth', needAuth);
+
+// 認証エラー判定
+const authError = computed(
+  () => needAuth && !props.auth.loading.value && !props.auth.user.value,
+);
+</script>
+
 <template>
   <div>
     <!-- ヘッダー -->
@@ -44,24 +65,3 @@
     </div>
   </div>
 </template>
-
-<script setup lang="ts">
-import { computed } from 'vue';
-
-// props
-interface Props {
-  needAuth?: boolean;
-  auth: ReturnType<typeof useAuth>;
-}
-
-const props = defineProps<Props>();
-
-const needAuth = props.needAuth ?? false;
-
-console.log('needAuth', needAuth);
-
-// 認証エラー判定
-const authError = computed(
-  () => needAuth && !props.auth.loading.value && !props.auth.user.value,
-);
-</script>

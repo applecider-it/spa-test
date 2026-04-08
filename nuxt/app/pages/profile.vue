@@ -1,3 +1,25 @@
+<script setup lang="ts">
+import { ref, watch } from 'vue';
+import AppLayout from '@/components/layouts/AppLayout.vue';
+import LoadingBlock from '@/components/ui/LoadingBlock.vue';
+
+// 認証
+const auth = useAuth();
+
+// 説明文
+const desc = ref('');
+
+// 認証完了後に desc を更新
+watch(
+  () => auth.user.value,
+  (user) => {
+    if (user) {
+      desc.value = 'desc desc desc desc ' + user.name;
+    }
+  },
+);
+</script>
+
 <template>
   <AppLayout :auth="auth" :needAuth="true">
     <div>
@@ -20,25 +42,3 @@
     </div>
   </AppLayout>
 </template>
-
-<script setup lang="ts">
-import { ref, watch } from 'vue'
-import AppLayout from '@/components/layouts/AppLayout.vue'
-import LoadingBlock from '@/components/ui/LoadingBlock.vue'
-
-// 認証
-const auth = useAuth()
-
-// 説明文
-const desc = ref('')
-
-// 認証完了後に desc を更新
-watch(
-  () => auth.user.value,
-  (user) => {
-    if (user) {
-      desc.value = 'desc desc desc desc ' + user.name
-    }
-  }
-)
-</script>

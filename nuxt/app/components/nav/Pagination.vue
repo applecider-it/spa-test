@@ -1,3 +1,15 @@
+<script setup lang="ts">
+import type { getPageInfo } from '@/services/nav/paginate';
+
+interface Props {
+  page: number;
+  info: ReturnType<typeof getPageInfo>;
+}
+
+const props = defineProps<Props>();
+const { page, info } = props;
+</script>
+
 <template>
   <nav class="flex justify-center items-center gap-3 mt-16">
     <NuxtLink
@@ -17,15 +29,3 @@
     </NuxtLink>
   </nav>
 </template>
-
-<script setup lang="ts">
-import type { getPageInfo } from '@/services/nav/paginate'
-
-interface Props {
-  page: number
-  info: ReturnType<typeof getPageInfo>
-}
-
-const props = defineProps<Props>()
-const { page, info } = props
-</script>

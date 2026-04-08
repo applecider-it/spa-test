@@ -1,3 +1,26 @@
+<script setup lang="ts">
+import { ref, watch } from 'vue';
+import AppLayout from '@/components/layouts/AppLayout.vue';
+import LoadingBlock from '@/components/ui/LoadingBlock.vue';
+import SendTest from '@/components/development/SendTest.vue';
+import LoginTest from '@/components/development/LoginTest.vue';
+import AuthLoadingTest from '@/components/development/AuthLoadingTest.vue';
+
+// 認証
+const auth = useAuth();
+
+// 認証後に text を設定
+const text = ref('');
+watch(
+  () => auth.user.value,
+  (user) => {
+    if (user) {
+      text.value = 'test ' + user.name;
+    }
+  },
+);
+</script>
+
 <template>
   <AppLayout :auth="auth">
     <div>
@@ -27,26 +50,3 @@
     </div>
   </AppLayout>
 </template>
-
-<script setup lang="ts">
-import { ref, watch } from 'vue'
-import AppLayout from '@/components/layouts/AppLayout.vue'
-import LoadingBlock from '@/components/ui/LoadingBlock.vue'
-import SendTest from '@/components/development/SendTest.vue'
-import LoginTest from '@/components/development/LoginTest.vue'
-import AuthLoadingTest from '@/components/development/AuthLoadingTest.vue'
-
-// 認証
-const auth = useAuth()
-
-// 認証後に text を設定
-const text = ref('')
-watch(
-  () => auth.user.value,
-  (user) => {
-    if (user) {
-      text.value = 'test ' + user.name
-    }
-  }
-)
-</script>
