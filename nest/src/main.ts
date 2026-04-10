@@ -24,6 +24,7 @@ async function bootstrap() {
   // session
   app.use(
     session({
+      name: 'spatestsess',
       // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-call
       store: new FileStoreSession({}),
       secret: 'secret-key',
