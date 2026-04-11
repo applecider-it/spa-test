@@ -2,6 +2,8 @@ import { sendRest } from '@/services/api/rest';
 
 /**
  * 認証管理
+ * 
+ * スコープ内変数を使っているため、SSRでは利用できないので注意。
  */
 
 /** 認証しているユーザー */

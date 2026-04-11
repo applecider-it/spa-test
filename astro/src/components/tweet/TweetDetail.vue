@@ -3,7 +3,7 @@ import { ref, onMounted } from 'vue';
 
 import { Tweet } from '@/services/tweet/tweet';
 
-const tweet = ref<any>([]);
+const tweet = ref<any>(null);
 
 onMounted(async () => {
   console.log('tweet');
