@@ -80,5 +80,6 @@ http://localhost:4322/
 
 ClientRouterがあるため、tailwindの新しいクラスがページ遷移後に反映されなくなる。
 
-対処方法は、npm run dev再起動か、ClientRouterを一時的に外す。
+ホットリロードでは機能する。
 
+対処方法は、npm run dev再起動か、ClientRouterを一時的に外す。
