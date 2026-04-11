@@ -1,9 +1,31 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue';
+import { sendRest } from '@/services/api/rest';
 
 import { Tweet } from '@/services/tweet/tweet';
 
 const tweets = ref<any[]>([]);
+const content = ref('');
+const result = ref('');
+
+const handleSubmit = async () => {
+  const data = { content: content.value };
+  const url = '/tweet/store';
+
+  try {
+    const res = await sendRest<{ content: string; user: any }>(url, data);
+
+    console.log('res', res);
+
+    let message = res.content;
+    if (res.user) message += ' by ' + res.user.name;
+
+    result.value = message;
+  } catch (e) {
+    console.error(e);
+    result.value = '送信に失敗しました';
+  }
+};
 
 onMounted(async () => {
   console.log('tweets');
@@ -19,6 +41,18 @@ onMounted(async () => {
 </script>
 
 <template>
+  <div>
+    <form @submit.prevent="handleSubmit" class="flex flex-col gap-2">
+      <textarea
+        placeholder="メッセージ"
+        v-model="content"
+        class="app-form-input"
+      />
+      <button type="submit" class="app-btn-primary">送信</button>
+      <p v-if="result">{{ result }}</p>
+    </form>
+  </div>
+
   <div v-for="tweet in tweets" class="border-4 p-10 my-5 space-y-5">
     <div>id: {{ tweet.id }}</div>
     <div>content: {{ tweet.content }}</div>

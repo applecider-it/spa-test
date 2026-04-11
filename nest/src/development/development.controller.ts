@@ -1,5 +1,6 @@
 import { Controller, Post, Body, Req } from '@nestjs/common';
 import type { Request } from 'express';
+import { AuthService } from '../auth/auth.service';
 
 class SendTestDto {
   message: string;
@@ -7,11 +8,17 @@ class SendTestDto {
 
 @Controller('development')
 export class DevelopmentController {
+  constructor(private readonly authService: AuthService) {}
+
   @Post('send-test')
-  sendTest(@Body() body: SendTestDto, @Req() req: Request) {
+  async sendTest(@Body() body: SendTestDto, @Req() req: Request) {
+    const me = await this.authService.me(req.session);
+
+    console.log('sendTest', me)
+
     return {
       message: 'Message: ' + body.message,
-      user: req.session['user'] || null,
+      user: me.user,
     };
   }
 }

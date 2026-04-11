@@ -36,7 +36,7 @@ export class AuthService {
 
   /** 認証処理 */
   async me(session: Session) {
-    await setTimeout(1000 * 0);
+    //await setTimeout(1000 * 0);
     return { user: session['user'] || null };
   }
 
