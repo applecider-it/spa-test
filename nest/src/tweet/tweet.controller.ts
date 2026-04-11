@@ -18,25 +18,37 @@ export class TweetController {
     private readonly authService: AuthService,
   ) {}
 
+  /** ツイート一覧 */
   @Post('tweets')
   async tweets(@Req() req: Request) {
     return await this.tweetService.tweets();
   }
 
+ /** ツイート取得 */
   @Post('tweet')
   async tweet(@Body() body: TweetDto, @Req() req: Request) {
     return await this.tweetService.tweet(body.id);
   }
 
+  /** ツイート作成 */
   @Post('store')
   async sendTest(@Body() body: StoreTweetDto, @Req() req: Request) {
     const me = await this.authService.me(req.session);
 
     console.log('sendTest', me);
 
+    if (!me.user) {
+      return {
+        status: 'ng',
+      };
+    }
+
+    const newTweet = await this.tweetService.storeTweet(me.user, body.content);
+
+    console.log('newTweet', newTweet)
+
     return {
-      content: 'Message: ' + body.content,
-      user: me.user,
+      status: 'ok',
     };
   }
 }

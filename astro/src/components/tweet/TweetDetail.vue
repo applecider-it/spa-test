@@ -27,5 +27,6 @@ onMounted(async () => {
   <div v-if="tweet">
     <div>id: {{ tweet.id }}</div>
     <div>content: {{ tweet.content }}</div>
+    <div>by {{ tweet.user.name }}</div>
   </div>
 </template>
