@@ -1,5 +1,7 @@
 ---
 import '@/assets/css/app.css';
+import Nav from './partials/Nav.astro';
+import { ClientRouter } from 'astro:transitions';
 ---
 <!doctype html>
 <html lang="en">
@@ -10,15 +12,15 @@ import '@/assets/css/app.css';
 		<link rel="icon" href="/favicon.ico" />
 		<meta name="generator" content={Astro.generator} />
 		<title>Astro Basics</title>
+    <ClientRouter />
 	</head>
-	<body>
-		<header>
-			<div>
-				<a href=""></a>
-			</div>
-		</header>
-		<div class="p-5">
-			<slot />
-		</div>
-	</body>
+  <body
+    class="bg-gradient-to-br from-indigo-100 via-white to-blue-100 min-h-screen"
+  >
+    <Nav />
+
+    <div class="pb-40 p-10">
+      <slot />
+    </div>
+  </body>
 </html>

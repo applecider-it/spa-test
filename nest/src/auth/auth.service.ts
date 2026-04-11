@@ -10,8 +10,14 @@ import { setTimeout } from 'timers/promises';
 export class AuthService {
   /** ログイン処理 */
   login(session: Session) {
-    session['user'] = { id: 1, name: 'テスト' };
-    return { message: 'logged in' };
+    const user = { id: 1, name: 'テスト', email: 'test@localhost' };
+    session['user'] = user;
+    return {
+      user: {
+        id: user.id,
+        name: user.name,
+      },
+    };
   }
 
   /** 認証処理 */

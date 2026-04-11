@@ -1,0 +1,18 @@
+---
+import Layout from '../layouts/Layout.astro';
+import LoginTest from '@/components/development/LoginTest.vue';
+import SendTest from '@/components/development/SendTest.vue';
+---
+
+<Layout>
+	開発者向けページ
+
+	<div class="space-y-5 mt-10">
+		<div>
+			<LoginTest client:load />
+		</div>
+		<div>
+			<SendTest client:load />
+		</div>
+	</div>
+</Layout>
