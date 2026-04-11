@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  /* ボタン */
+
+  .app-btn {
+    @apply px-4 py-2 rounded-lg;
+  }
+  .app-btn-primary {
+    @apply app-btn bg-blue-500 text-white hover:bg-blue-600;
+  }
+
+  /* 通常のリンク */
+  .app-link-normal {
+    @apply text-blue-600 hover:underline;
+  }
+
+  /* フォームのテキストボックス */
+  .app-form-input {
+    @apply w-full border rounded p-2;
+  }
+
+  /* カード */
+  .app-card {
+    @apply bg-white rounded-2xl shadow-xl p-6 hover:scale-105 transition;
+  }
+}
