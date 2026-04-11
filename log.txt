@@ -25,3 +25,7 @@ nest g service auth
 
 npm install -g serve
 
+-----------------------------------
+
+npm create astro@latest
+
