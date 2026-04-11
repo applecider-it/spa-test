@@ -57,12 +57,30 @@ onMounted(async () => {
     </form>
   </div>
 
-  <div v-for="tweet in tweets" class="border-4 p-10 my-5 space-y-5">
-    <div>id: {{ tweet.id }}</div>
-    <div>content: {{ tweet.content }}</div>
-    <div>by {{ tweet.user.name }}</div>
-    <div>
-      <a :href="`/tweet?id=${tweet.id}`" class="app-btn-primary">詳細</a>
+  <div
+    v-for="tweet in tweets"
+    :key="tweet.id"
+    class="bg-white border border-gray-200 rounded-2xl shadow-sm p-5 my-4 hover:shadow-md transition"
+  >
+    <!-- ヘッダー -->
+    <div class="flex items-center justify-between mb-3">
+      <div class="text-sm text-gray-500">#{{ tweet.id }}</div>
+      <div class="text-sm text-gray-400">by {{ tweet.user.name }}</div>
+    </div>
+
+    <!-- 本文 -->
+    <div class="text-gray-800 text-base leading-relaxed mb-4">
+      {{ tweet.content }}
+    </div>
+
+    <!-- フッター -->
+    <div class="flex justify-end">
+      <a
+        :href="`/tweet?id=${tweet.id}`"
+        class="inline-block px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700 transition"
+      >
+        詳細
+      </a>
     </div>
   </div>
 </template>
