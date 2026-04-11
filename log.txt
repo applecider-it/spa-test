@@ -37,3 +37,9 @@ npx tailwindcss init -p
 npx astro add vue
 
 npm install axios
+
+-----------------------------------
+
+nest g controller tweet
+
+nest g service tweet
