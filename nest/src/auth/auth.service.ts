@@ -1,8 +1,6 @@
 import { Inject, Injectable } from '@nestjs/common';
 import type { Session } from 'express-session';
 
-import { setTimeout } from 'timers/promises';
-
 import { eq } from 'drizzle-orm';
 import { users } from '../db/schema';
 
@@ -36,7 +34,6 @@ export class AuthService {
 
   /** 認証処理 */
   async me(session: Session) {
-    //await setTimeout(1000 * 0);
     return { user: session['user'] || null };
   }
 

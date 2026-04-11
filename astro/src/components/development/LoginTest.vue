@@ -1,18 +1,21 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import { navigate } from 'astro:transitions/client';
+import { showToast, setIsLoading } from '@/services/ui/message';
 
 import { Auth } from '@/services/auth/auth';
 
-const email = ref("test@localhost");
-const password = ref("1234");
+const email = ref('test@localhost');
+const password = ref('1234');
 
 const execLogin = async () => {
+  setIsLoading(true);
   const res = await Auth.login(email.value, password.value);
+  setIsLoading(false);
   if (res) {
     navigate('/');
   } else {
-    console.warn('ログインエラー');
+    showToast('ログインエラー', 'alert');
   }
 };
 
@@ -39,13 +42,14 @@ const execMe = async () => {
         <button @click="execLogin" class="app-btn-primary">ログイン</button>
       </div>
     </div>
-    <div class="mt-10 border p-5">
-      <button @click="execLogout" class="app-btn-primary">
-        ログアウト
-      </button>
-      <button @click="execMe" class="app-btn-secondary ml-5">
+    <div class="mt-10 border p-5 space-x-5">
+      <button @click="execLogout" class="app-btn-primary">ログアウト</button>
+
+      <button @click="execMe" class="app-btn-secondary">
         ログインチェック
       </button>
+
+      <a href="/profile" class="app-link-normal">プロフィールページ</a>
     </div>
   </div>
 </template>

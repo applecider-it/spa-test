@@ -2,6 +2,8 @@ import { Controller, Post, Body, Req } from '@nestjs/common';
 import type { Request } from 'express';
 import { AuthService } from './auth.service';
 
+import { setTimeout } from 'timers/promises';
+
 class LoginDto {
   email: string;
   password: string;
@@ -13,7 +15,8 @@ export class AuthController {
 
   @Post('login')
   async login(@Body() body: LoginDto, @Req() req: Request) {
-    console.log(body.email, body.password);
+    //await setTimeout(1000 * 1);
+    console.log('login', body.email, body.password);
     return await this.authService.login(req.session, body.email, body.password);
   }
 
