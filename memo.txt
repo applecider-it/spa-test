@@ -7,9 +7,8 @@ cd ~/workspace/github/spa-test
 port
 
 api: 4000
-nuxt: 3000
-nuxt動作確認: 3001
 astro: 4321
+確認用サーバー: 4322
 
 -----------------------------------
 
@@ -34,33 +33,19 @@ http://localhost:4321/
 
 -----------------------------------
 
-nuxt
+ビルド
 
-cd ~/workspace/github/spa-test/nuxt
+cd ~/workspace/github/spa-test/astro
 
-npm run dev
+npm run build
 
-マークダウンをjsonに変換
+-----------------------------------
 
-npm run velite
+確認
 
-http://localhost:3000/
+cd ~/workspace/github/spa-test/astro
 
------
+serve ./dist -l 4322
 
-build
-
-cd ~/workspace/github/spa-test/nuxt
-
-npm run generate
-
------
-
-動作確認用サーバーで確認
-
-cd ~/workspace/github/spa-test/nuxt/.output/public
-
-serve . -l 3001
-
-http://localhost:3001/
+http://localhost:4322/
 
