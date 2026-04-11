@@ -19,7 +19,7 @@ const login = async () => {
     const res = await sendRest<{ status: any }>(uri, data);
     console.log('res', res);
 
-    authChecked = false;
+    clear();
   } catch (e) {
     console.error(e);
     throw e;
@@ -35,8 +35,7 @@ const logout = async () => {
     const res = await sendRest<{ status: string }>(uri, data);
     console.log('res', res);
 
-    authUser = null;
-    authChecked = false;
+    clear();
   } catch (e) {
     console.error(e);
   }
@@ -44,6 +43,8 @@ const logout = async () => {
 
 /** 認証ユーザー取得 */
 const me = async () => {
+  console.log('Auth.me()');
+
   const data = {};
   const uri = '/auth/me';
 
@@ -57,6 +58,12 @@ const me = async () => {
   }
 };
 
+/** 認証ユーザー変数クリア */
+const clear = () => {
+    authUser = null;
+    authChecked = false;
+}
+ 
 /**
  * クライアントに保存されている認証ユーザー取得
  * 
