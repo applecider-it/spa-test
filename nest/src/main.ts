@@ -11,7 +11,7 @@ async function bootstrap() {
 
   // CORS（別ポート対応）
   app.enableCors({
-    origin: ['http://localhost:4321', 'http://localhost:4322'],
+    origin: true, // リクエスト元のOriginをそのまま許可
     credentials: true, // ←これ必須
   });
 
