@@ -43,3 +43,12 @@ npm install axios
 nest g controller tweet
 
 nest g service tweet
+
+npm install @nestjs/config
+
+npm install drizzle-orm pg
+npm install -D drizzle-kit
+
+npx drizzle-kit generate
+npx drizzle-kit push
+
