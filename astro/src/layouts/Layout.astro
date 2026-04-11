@@ -2,6 +2,7 @@
 import '@/assets/css/app.css';
 import Nav from './partials/Nav.astro';
 import { ClientRouter } from 'astro:transitions';
+import UiCommon from '@/services/ui/UiCommon.vue';
 ---
 <!doctype html>
 <html lang="en">
@@ -17,6 +18,8 @@ import { ClientRouter } from 'astro:transitions';
   <body
     class="bg-gradient-to-br from-indigo-100 via-white to-blue-100 min-h-screen"
   >
+    <UiCommon client:load />
+    
     <Nav />
 
     <div class="pb-40 p-10">

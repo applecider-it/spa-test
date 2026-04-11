@@ -2,17 +2,23 @@
 import Layout from '../layouts/Layout.astro';
 import LoginTest from '@/components/development/LoginTest.vue';
 import SendTest from '@/components/development/SendTest.vue';
+import UIArea from '@/components/development/UIArea.vue';
+
+const sectionClass = "border-2 p-5"
 ---
 
 <Layout>
 	開発者向けページ
 
 	<div class="space-y-5 mt-10">
-		<div>
+		<div class={sectionClass}>
 			<LoginTest client:load />
 		</div>
-		<div>
+		<div class={sectionClass}>
 			<SendTest client:load />
+		</div>
+		<div class={sectionClass}>
+			<UIArea client:load />
 		</div>
 	</div>
 </Layout>

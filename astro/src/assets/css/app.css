@@ -9,7 +9,10 @@
     @apply px-4 py-2 rounded-lg;
   }
   .app-btn-primary {
-    @apply app-btn bg-blue-500 text-white hover:bg-blue-600;
+    @apply app-btn text-white bg-blue-500;
+  }
+  .app-btn-secondary {
+    @apply app-btn bg-gray-500 hover:bg-gray-600 text-white;
   }
 
   /* 通常のリンク */

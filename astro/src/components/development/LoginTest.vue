@@ -28,7 +28,7 @@ const execMe = async () => {
 
 <template>
   <div>
-    <div class="space-y-5">
+    <div class="space-y-5 border p-5">
       <div>
         <input type="text" v-model="email" class="app-form-input" />
       </div>
@@ -39,11 +39,11 @@ const execMe = async () => {
         <button @click="execLogin" class="app-btn-primary">ログイン</button>
       </div>
     </div>
-    <div class="mt-10">
-      <button @click="execLogout" class="app-btn-primary ml-5">
+    <div class="mt-10 border p-5">
+      <button @click="execLogout" class="app-btn-primary">
         ログアウト
       </button>
-      <button @click="execMe" class="app-btn-primary ml-5">
+      <button @click="execMe" class="app-btn-secondary ml-5">
         ログインチェック
       </button>
     </div>
