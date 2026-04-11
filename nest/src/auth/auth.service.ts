@@ -12,12 +12,7 @@ export class AuthService {
   login(session: Session) {
     const user = { id: 1, name: 'テスト', email: 'test@localhost' };
     session['user'] = user;
-    return {
-      user: {
-        id: user.id,
-        name: user.name,
-      },
-    };
+    return { status: 'ok' };
   }
 
   /** 認証処理 */
@@ -29,6 +24,6 @@ export class AuthService {
   /** ログアウト処理 */
   logout(session: Session) {
     session.destroy(() => {});
-    return { message: 'logged out' };
+    return { status: 'ok' };
   }
 }

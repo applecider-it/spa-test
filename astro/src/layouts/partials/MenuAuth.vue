@@ -11,10 +11,10 @@ import { Auth } from '@/services/auth/auth';
 
 const user = ref<any>(null)
 
-onMounted(() => {
+onMounted(async() => {
   console.log('menu');
 
-  user.value = Auth.user();
+  user.value = await Auth.user();
 });
 </script>
 

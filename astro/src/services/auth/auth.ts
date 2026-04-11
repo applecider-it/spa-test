@@ -4,7 +4,11 @@ import { sendRest } from '@/services/api/rest';
  * 認証管理
  */
 
-const userKey = "auth-user";
+/** 認証しているユーザー */
+let authUser:any = null;
+
+/** すでに認証確認している場合はtrue */
+let authChecked = false;
 
 /** ログイン処理 */
 const login = async () => {
@@ -12,10 +16,10 @@ const login = async () => {
   const uri = '/auth/login';
 
   try {
-    const res = await sendRest<{ user: any }>(uri, data);
+    const res = await sendRest<{ status: any }>(uri, data);
     console.log('res', res);
 
-    localStorage.setItem(userKey, JSON.stringify(res.user));
+    authChecked = false;
   } catch (e) {
     console.error(e);
     throw e;
@@ -28,10 +32,11 @@ const logout = async () => {
   const uri = '/auth/logout';
 
   try {
-    const res = await sendRest<{ message: string }>(uri, data);
+    const res = await sendRest<{ status: string }>(uri, data);
     console.log('res', res);
 
-    localStorage.removeItem(userKey);
+    authUser = null;
+    authChecked = false;
   } catch (e) {
     console.error(e);
   }
@@ -43,7 +48,7 @@ const me = async () => {
   const uri = '/auth/me';
 
   try {
-    const res = await sendRest<{ message: string }>(uri, data);
+    const res = await sendRest<{ user: any }>(uri, data);
     console.log('res', res);
 
     return res;
@@ -52,15 +57,23 @@ const me = async () => {
   }
 };
 
-/** クライアントに保存されている認証ユーザー取得 */
-const user = () => {
-  const stored = localStorage.getItem(userKey);
+/**
+ * クライアントに保存されている認証ユーザー取得
+ * 
+ * この構造の為、最初だけは、ここ複数回me()が動く可能性がある。
+ */
+const user = async() => {
+  if (authUser || authChecked) return authUser;
 
-  const user = stored ? JSON.parse(stored) : null;
+  console.log('find user');
 
-  console.log('user', user);
+  const res = await me();
 
-  return user;
+  authUser = res?.user;
+
+  authChecked = true;
+
+  return authUser;
 };
 
 export const Auth = {
