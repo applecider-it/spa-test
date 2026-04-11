@@ -29,3 +29,7 @@ npm install -g serve
 
 npm create astro@latest
 
+
+npm install -D tailwindcss@^3.4.18 postcss autoprefixer
+
+npx tailwindcss init -p

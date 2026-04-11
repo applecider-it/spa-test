@@ -9,6 +9,7 @@ port
 api: 4000
 nuxt: 3000
 nuxt動作確認: 3001
+astro: 4321
 
 -----------------------------------
 
@@ -20,6 +21,16 @@ cd ~/workspace/github/spa-test/nest
 npm run start:dev
 
 http://localhost:4000/
+
+-----------------------------------
+
+astro
+
+cd ~/workspace/github/spa-test/astro
+
+npm run dev
+
+http://localhost:4321/
 
 -----------------------------------
 
