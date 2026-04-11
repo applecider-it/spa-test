@@ -13,8 +13,8 @@ let authUser:any = null;
 let authChecked = false;
 
 /** ログイン処理 */
-const login = async () => {
-  const data = {};
+const login = async (email: string, password: string) => {
+  const data = {email, password};
   const uri = '/auth/login';
 
   try {
@@ -22,6 +22,8 @@ const login = async () => {
     console.log('res', res);
 
     clear();
+
+    return res.status === 'ok';
   } catch (e) {
     console.error(e);
     throw e;

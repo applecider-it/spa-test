@@ -33,6 +33,28 @@ http://localhost:4321/
 
 -----------------------------------
 
+セットアップ
+
+cd ~/workspace/github/spa-test/nest
+
+npm ci
+
+cp .env.example .env
+
+DB作成
+
+npx drizzle-kit push
+
+
+
+cd ~/workspace/github/spa-test/astro
+
+npm ci
+
+
+
+-----------------------------------
+
 ビルド
 
 cd ~/workspace/github/spa-test/astro
