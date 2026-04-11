@@ -10,12 +10,12 @@ export class TweetController {
   constructor(private readonly tweetService: TweetService) {}
 
   @Post('tweets')
-  tweets(@Req() req: Request) {
-    return this.tweetService.tweets();
+  async tweets(@Req() req: Request) {
+    return await this.tweetService.tweets();
   }
 
   @Post('tweet')
-  tweet(@Body() body: TweetDto, @Req() req: Request) {
-    return this.tweetService.tweet(body.id);
+  async tweet(@Body() body: TweetDto, @Req() req: Request) {
+    return await this.tweetService.tweet(body.id);
   }
 }
