@@ -6,6 +6,7 @@ import { TweetService } from './tweet.service';
 import { AuthService } from '../auth/auth.service';
 
 class TweetDto {
+  @IsNotEmpty({ message: 'idは必須項目です' })
   id: number;
 }
 

@@ -1,11 +1,15 @@
 import { Controller, Post, Body, Req } from '@nestjs/common';
 import type { Request } from 'express';
 import { AuthService } from './auth.service';
+import { IsNotEmpty } from 'class-validator';
 
 import { setTimeout } from 'timers/promises';
 
 class LoginDto {
+  @IsNotEmpty({ message: 'emailは必須項目です' })
   email: string;
+
+  @IsNotEmpty({ message: 'passwordは必須項目です' })
   password: string;
 }
 

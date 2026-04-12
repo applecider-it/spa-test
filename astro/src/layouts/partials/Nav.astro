@@ -2,9 +2,10 @@
 import MenuAuth from './MenuAuth.vue';
 
 const desktopClass = 'hover:text-indigo-500';
+const mobileClass = 'block py-2 text-gray-700 hover:text-indigo-500';
 ---
 
-<header class="bg-white shadow-md">
+<header class="bg-white shadow-md" x-data="{ open:false }">
   <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
     <!-- Logo -->
     <a href="/">
@@ -16,12 +17,29 @@ const desktopClass = 'hover:text-indigo-500';
     </a>
 
     <!-- Desktop Menu -->
-    <nav class="flex space-x-8 text-gray-700 font-medium">
+    <nav class="hidden md:flex space-x-8 text-gray-700 font-medium">
       <a href="/" class={desktopClass}>Home</a>
       <a href="/tweets" class={desktopClass}>Tweet</a>
       <span>
         <MenuAuth client:load desktopClass={desktopClass} />
       </span>
     </nav>
+
+    <!-- Mobile Button -->
+    <button @click="open = !open" id="menuBtn" class="md:hidden text-2xl">
+      ☰
+    </button>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div
+    x-show="open"
+    x-transition.duration.200ms
+    id="mobileMenu"
+    class="px-6 pb-4 md:hidden"
+    style="display: none;"
+  >
+    <a href="#" class={mobileClass}>Home</a>
+    <a href="#" class={mobileClass}>About</a>
   </div>
 </header>

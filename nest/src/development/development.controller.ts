@@ -1,8 +1,11 @@
 import { Controller, Post, Body, Req } from '@nestjs/common';
 import type { Request } from 'express';
+import { IsNotEmpty } from 'class-validator';
+
 import { AuthService } from '../auth/auth.service';
 
 class SendTestDto {
+  @IsNotEmpty({ message: 'messageは必須項目です' })
   message: string;
 }
 
