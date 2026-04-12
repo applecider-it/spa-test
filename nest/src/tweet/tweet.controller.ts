@@ -32,14 +32,14 @@ export class TweetController {
 
   /** ツイート作成 */
   @Post('store')
-  async sendTest(@Body() body: StoreTweetDto, @Req() req: Request) {
+  async store(@Body() body: StoreTweetDto, @Req() req: Request) {
     const me = await this.authService.me(req.session);
 
-    console.log('sendTest', me);
+    console.log('store', me);
 
     if (!me.user) {
       return {
-        status: 'ng',
+        status: 'auth',
       };
     }
 
@@ -49,6 +49,7 @@ export class TweetController {
 
     return {
       status: 'ok',
+      tweet: newTweet,
     };
   }
 }

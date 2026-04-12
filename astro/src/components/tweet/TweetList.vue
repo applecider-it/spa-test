@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue';
 import { sendRest } from '@/services/api/rest';
+import { showToast } from '@/services/ui/message';
 
 import { Tweet } from '@/services/tweet/tweet';
 
@@ -15,11 +16,18 @@ const handleSubmit = async () => {
   const url = '/tweet/store';
 
   try {
-    const res = await sendRest<{ content: string; user: any }>(url, data);
+    const res = await sendRest<{ status: string; tweet?: any }>(url, data);
 
     console.log('res', res);
 
-    content.value = '';
+    if (res.status === 'ok') {
+      content.value = '';
+      showToast('ツイートしました。');
+    } else {
+      if (res.status === 'auth') {
+        showToast('ログインが必要です。', 'alert');
+      }
+    }
 
     await setTweets();
   } catch (e) {
