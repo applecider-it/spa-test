@@ -20,7 +20,14 @@ npm run dev
 
 http://localhost:4321/
 
+test@localhost.com / testtest
+
+test2@localhost.com / test2test2
+
+
 http://localhost:4321/admin-secret
+
+admin@localhost.com / adminadmin
 
 -----------------------------------
 

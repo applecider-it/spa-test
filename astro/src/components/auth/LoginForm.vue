@@ -5,8 +5,8 @@ import { showToastNextPage, setIsLoading } from '@/services/ui/message';
 
 import { Auth } from '@/services/auth/auth';
 
-const email = ref('test@localhost');
-const password = ref('1234');
+const email = ref('');
+const password = ref('');
 const errors = ref<any>({});
 
 const execLogin = async () => {

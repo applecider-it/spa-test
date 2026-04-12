@@ -32,3 +32,10 @@ export const userTweets = pgTable(
   },
   (table) => [index('user_tweets_user_id_idx').on(table.userId)],
 );
+
+export const adminUsers = pgTable('admin_users', {
+  id: serial('id').primaryKey(),
+  name: text('name').notNull(),
+  email: text('email').notNull().default(''),
+  password: text('password').notNull().default(''),
+});

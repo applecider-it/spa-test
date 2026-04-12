@@ -29,6 +29,13 @@
       "when": 1775901295991,
       "tag": "0003_thin_the_professor",
       "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "7",
+      "when": 1776038050896,
+      "tag": "0004_watery_logan",
+      "breakpoints": true
     }
   ]
 }
