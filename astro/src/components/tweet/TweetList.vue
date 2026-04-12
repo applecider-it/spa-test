@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue';
 import { sendRest } from '@/services/api/rest';
-import { showToast } from '@/services/ui/message';
+import { showToast,setIsLoading } from '@/services/ui/message';
 
 import { Tweet } from '@/services/tweet/tweet';
 
@@ -16,8 +16,10 @@ const handleSubmit = async () => {
 
   errors.value = {};
 
+  setIsLoading(true);
   try {
     const res = await sendRest<{ status: string; tweet?: any }>(url, data);
+    setIsLoading(false);
 
     console.log('res', res);
 
@@ -32,6 +34,7 @@ const handleSubmit = async () => {
 
     await setTweets();
   } catch (e: any) {
+    setIsLoading(false);
     if (e.response.status === 400) {
       errors.value = e.response.data.errors;
     }

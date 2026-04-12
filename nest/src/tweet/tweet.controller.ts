@@ -2,6 +2,8 @@ import { Controller, Post, Body, Req } from '@nestjs/common';
 import type { Request } from 'express';
 import { IsNotEmpty, IsString, Length } from 'class-validator';
 
+import { setTimeout } from 'timers/promises';
+
 import { TweetService } from './tweet.service';
 import { AuthService } from '../auth/auth.service';
 
@@ -43,6 +45,8 @@ export class TweetController {
   /** ツイート作成 */
   @Post('store')
   async store(@Body() body: StoreTweetDto, @Req() req: Request) {
+    //await setTimeout(1000 * 1);
+
     const me = await this.authService.me(req.session);
 
     console.log('store', me);
