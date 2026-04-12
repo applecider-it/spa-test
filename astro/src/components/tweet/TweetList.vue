@@ -7,13 +7,14 @@ import { Tweet } from '@/services/tweet/tweet';
 
 const tweets = ref<any[]>([]);
 const content = ref('');
+const errors = ref<any>({});
 
 /** 送信時 */
 const handleSubmit = async () => {
-  if (content.value === '') return;
-
   const data = { content: content.value };
   const url = '/tweet/store';
+
+  errors.value = {};
 
   try {
     const res = await sendRest<{ status: string; tweet?: any }>(url, data);
@@ -30,8 +31,15 @@ const handleSubmit = async () => {
     }
 
     await setTweets();
-  } catch (e) {
-    console.error(e);
+  } catch (e: any) {
+    console.log(e);
+    console.log(e.response);
+
+    if (e.response.status === 400) {
+      console.log(e.response.data.errors);
+
+      errors.value = e.response.data.errors;
+    }
   }
 };
 
@@ -56,12 +64,21 @@ onMounted(async () => {
 <template>
   <div>
     <form @submit.prevent="handleSubmit" class="flex flex-col gap-2">
-      <textarea
-        placeholder="メッセージ"
-        v-model="content"
-        class="app-form-input"
-      />
-      <button type="submit" class="app-btn-primary">送信</button>
+      <div>
+        <textarea
+          placeholder="メッセージ"
+          v-model="content"
+          class="app-form-input"
+        />
+      </div>
+
+      <div>
+        <button type="submit" class="app-btn-primary">送信</button>
+      </div>
+
+      <div v-if="errors.content" class="text-red-500 my-3">
+        {{ errors.content[0] }}
+      </div>
     </form>
   </div>
 

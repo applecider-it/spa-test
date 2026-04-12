@@ -1,5 +1,7 @@
 import { Controller, Post, Body, Req } from '@nestjs/common';
 import type { Request } from 'express';
+import { IsNotEmpty, IsString, Length } from 'class-validator';
+
 import { TweetService } from './tweet.service';
 import { AuthService } from '../auth/auth.service';
 
@@ -8,6 +10,13 @@ class TweetDto {
 }
 
 class StoreTweetDto {
+  @Length(1, 10, {
+    message: (args) => {
+      return `${args.property}は${args.constraints[0]}〜${args.constraints[1]}文字です`;
+    },
+  })
+  @IsString({ message: 'contentは文字列で入力してください' })
+  @IsNotEmpty({ message: 'contentは必須項目です' })
   content: string;
 }
 
@@ -24,7 +33,7 @@ export class TweetController {
     return await this.tweetService.tweets();
   }
 
- /** ツイート取得 */
+  /** ツイート取得 */
   @Post('tweet')
   async tweet(@Body() body: TweetDto, @Req() req: Request) {
     return await this.tweetService.tweet(body.id);
@@ -45,7 +54,7 @@ export class TweetController {
 
     const newTweet = await this.tweetService.storeTweet(me.user, body.content);
 
-    console.log('newTweet', newTweet)
+    console.log('newTweet', newTweet);
 
     return {
       status: 'ok',

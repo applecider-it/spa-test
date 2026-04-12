@@ -6,6 +6,8 @@ import cookieParser from 'cookie-parser';
 
 import FileStore from 'session-file-store';
 
+import { ValidationPipe, BadRequestException } from '@nestjs/common';
+
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
@@ -32,6 +34,24 @@ async function bootstrap() {
       saveUninitialized: false,
       cookie: {
         httpOnly: true,
+      },
+    }),
+  );
+
+  // validation
+  app.useGlobalPipes(
+    new ValidationPipe({
+      whitelist: true,
+      exceptionFactory: (errors) => {
+        const custom: any = {};
+
+        errors.forEach((err) => {
+          custom[err.property] = Object.values(err.constraints || {});
+        });
+
+        return new BadRequestException({
+          errors: custom,
+        });
       },
     }),
   );
