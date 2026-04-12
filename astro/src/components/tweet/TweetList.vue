@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue';
 import { sendRest } from '@/services/api/rest';
-import { showToast,setIsLoading } from '@/services/ui/message';
+import { showToast, setIsLoading } from '@/services/ui/message';
 
 import { Tweet } from '@/services/tweet/tweet';
 
@@ -23,20 +23,16 @@ const handleSubmit = async () => {
 
     console.log('res', res);
 
-    if (res.status === 'ok') {
-      content.value = '';
-      showToast('ツイートしました。');
-    } else {
-      if (res.status === 'auth') {
-        showToast('ログインが必要です。', 'alert');
-      }
-    }
+    content.value = '';
+    showToast('ツイートしました。');
 
     await setTweets();
   } catch (e: any) {
     setIsLoading(false);
     if (e.response.status === 400) {
       errors.value = e.response.data.errors;
+    } else if (e.response.status === 403) {
+      showToast('ログインが必要です。', 'alert');
     }
   }
 };

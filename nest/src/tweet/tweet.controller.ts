@@ -1,4 +1,4 @@
-import { Controller, Post, Body, Req } from '@nestjs/common';
+import { Controller, Post, Body, Req, UseGuards } from '@nestjs/common';
 import type { Request } from 'express';
 import { IsNotEmpty } from 'class-validator';
 
@@ -8,6 +8,8 @@ import { setTimeout } from 'timers/promises';
 
 import { TweetService } from './tweet.service';
 import { AuthService } from '../auth/auth.service';
+
+import { SessionAuthGuard } from '../auth/auth.guard';
 
 class TweetDto {
   @IsNotEmpty({ message: 'idは必須項目です' })
@@ -39,6 +41,7 @@ export class TweetController {
   }
 
   /** ツイート作成 */
+  @UseGuards(SessionAuthGuard)
   @Post('store')
   async store(@Body() body: StoreTweetDto, @Req() req: Request) {
     //await setTimeout(1000 * 1);
@@ -46,12 +49,6 @@ export class TweetController {
     const me = await this.authService.me(req.session);
 
     console.log('store', me);
-
-    if (!me.user) {
-      return {
-        status: 'auth',
-      };
-    }
 
     const newTweet = await this.tweetService.storeTweet(me.user, body.content);
 
