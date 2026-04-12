@@ -1,11 +1,7 @@
 <script setup lang="ts">
 import { nextTick, ref } from 'vue';
 import { navigate } from 'astro:transitions/client';
-import {
-  showToast,
-  showToastNextPage,
-  setIsLoading,
-} from '@/services/ui/message';
+import { showToastNextPage, setIsLoading } from '@/services/ui/message';
 
 import { Auth } from '@/services/auth/auth';
 
@@ -14,6 +10,8 @@ const password = ref('1234');
 const errors = ref<any>({});
 
 const execLogin = async () => {
+  errors.value = {};
+
   setIsLoading(true);
   try {
     const res = await Auth.login(email.value, password.value);
@@ -22,7 +20,9 @@ const execLogin = async () => {
       showToastNextPage('ログインしました。');
       navigate('/');
     } else {
-      showToast('ログインエラー', 'alert');
+      errors.value = {
+        email: ['ログインエラー'],
+      };
     }
   } catch (e: any) {
     setIsLoading(false);
