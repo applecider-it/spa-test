@@ -32,12 +32,7 @@ const handleSubmit = async () => {
 
     await setTweets();
   } catch (e: any) {
-    console.log(e);
-    console.log(e.response);
-
     if (e.response.status === 400) {
-      console.log(e.response.data.errors);
-
       errors.value = e.response.data.errors;
     }
   }
@@ -76,7 +71,7 @@ onMounted(async () => {
         <button type="submit" class="app-btn-primary">送信</button>
       </div>
 
-      <div v-if="errors.content" class="text-red-500 my-3">
+      <div v-if="errors.content" class="app-form-error">
         {{ errors.content[0] }}
       </div>
     </form>

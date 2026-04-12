@@ -19,17 +19,12 @@ const login = async (email: string, password: string) => {
   const data = { email, password };
   const uri = '/auth/login';
 
-  try {
-    const res = await sendRest<{ status: any }>(uri, data);
-    console.log('res', res);
+  const res = await sendRest<{ status: any }>(uri, data);
+  console.log('res', res);
 
-    clear();
+  clear();
 
-    return res.status === 'ok';
-  } catch (e) {
-    console.error(e);
-    throw e;
-  }
+  return res.status === 'ok';
 };
 
 /** ログアウト処理 */
@@ -37,14 +32,10 @@ const logout = async () => {
   const data = {};
   const uri = '/auth/logout';
 
-  try {
-    const res = await sendRest<{ status: string }>(uri, data);
-    console.log('res', res);
+  const res = await sendRest<{ status: string }>(uri, data);
+  console.log('res', res);
 
-    clear();
-  } catch (e) {
-    console.error(e);
-  }
+  clear();
 };
 
 /** 認証ユーザー取得 */
@@ -54,14 +45,10 @@ const me = async () => {
   const data = {};
   const uri = '/auth/me';
 
-  try {
-    const res = await sendRest<{ user: any }>(uri, data);
-    console.log('res', res);
+  const res = await sendRest<{ user: any }>(uri, data);
+  console.log('res', res);
 
-    return res;
-  } catch (e) {
-    console.error(e);
-  }
+  return res;
 };
 
 /** 認証ユーザー変数クリア */
