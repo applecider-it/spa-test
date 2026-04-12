@@ -3,7 +3,13 @@
 
 import { ref } from 'vue';
 
-import { showToast, setIsLoading } from '@/services/ui/message';
+import { navigate } from 'astro:transitions/client';
+
+import {
+  showToast,
+  setIsLoading,
+  showToastNextPage,
+} from '@/services/ui/message';
 import LoadingInline from '@/components/ui/message/LoadingInline.vue';
 
 const cnt = ref<number>(0);
@@ -33,6 +39,13 @@ const toastTest = (type: string) => {
   const msg = `トーストテスト vue.js type:${type} cnt.value:${cnt.value}`;
   console.log(msg);
   showToast(msg, type);
+};
+
+/** 次のページのトーストの動作確認 */
+const toastNextPageTest = () => {
+  showToastNextPage('次のページのトースト');
+  showToastNextPage('次のページのトースト', 'alert');
+  navigate('/');
 };
 </script>
 
@@ -71,6 +84,12 @@ const toastTest = (type: string) => {
         Toast 2
       </button>
       <span>cnt: {{ cnt }}</span>
+    </div>
+
+    <div class="mt-5 space-x-2">
+      <button class="app-btn-primary" @click="() => toastNextPageTest()">
+        Toast Next page
+      </button>
     </div>
   </div>
 </template>

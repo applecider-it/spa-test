@@ -1,5 +1,5 @@
 
-cd ~/workspace/github/spa-test
+cd ~/workspace/github/spa-test/astro
 
 
 -----------------------------------
@@ -12,6 +12,16 @@ astro: 4321
 
 -----------------------------------
 
+astro
+
+cd ~/workspace/github/spa-test/astro
+
+npm run dev
+
+http://localhost:4321/
+
+-----------------------------------
+
 api 
 
 
@@ -20,16 +30,6 @@ cd ~/workspace/github/spa-test/nest
 npm run start:dev
 
 http://localhost:4000/
-
------------------------------------
-
-astro
-
-cd ~/workspace/github/spa-test/astro
-
-npm run dev
-
-http://localhost:4321/
 
 -----------------------------------
 
