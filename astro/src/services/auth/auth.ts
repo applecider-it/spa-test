@@ -1,5 +1,6 @@
 import { sendRest } from '@/services/api/rest';
 import { navigate } from 'astro:transitions/client';
+import { showToastNextPage } from '@/services/ui/message';
 
 /**
  * 認証管理
@@ -93,7 +94,8 @@ const requieAuth = async () => {
   const rec = await user();
 
   if (!rec) {
-    navigate('/')
+    showToastNextPage('ログイン必須ページです。', 'alert');
+    navigate('/');
     return false;
   }
 
