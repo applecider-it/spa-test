@@ -83,3 +83,16 @@ ClientRouterがあるため、tailwindの新しいクラスがページ遷移後
 ホットリロードでは機能する。
 
 対処方法は、npm run dev再起動か、ClientRouterを一時的に外す。
+
+-----------------------------------
+
+テスト
+
+cd ~/workspace/github/spa-test/nest
+
+npm run test
+
+個別実行
+
+npm run test -- auth/auth.controller.spec.ts
+
