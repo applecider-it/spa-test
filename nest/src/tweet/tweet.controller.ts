@@ -1,7 +1,8 @@
 import { Controller, Post, Body, Req } from '@nestjs/common';
 import type { Request } from 'express';
-import { IsNotEmpty, IsString, Length } from 'class-validator';
-import { Transform } from 'class-transformer';
+import { IsNotEmpty } from 'class-validator';
+
+import { TweetContentValidation } from './tweet.validation';
 
 import { setTimeout } from 'timers/promises';
 
@@ -14,16 +15,7 @@ class TweetDto {
 }
 
 class StoreTweetDto {
-  @Transform(({ value }) =>
-    typeof value === 'string' ? value.trim() : value
-  )
-  @Length(1, 10, {
-    message: (args) => {
-      return `${args.property}は${args.constraints[0]}〜${args.constraints[1]}文字です`;
-    },
-  })
-  @IsString({ message: 'contentは文字列で入力してください' })
-  @IsNotEmpty({ message: 'contentは必須項目です' })
+  @TweetContentValidation()
   content: string;
 }
 
