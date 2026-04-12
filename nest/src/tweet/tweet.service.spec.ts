@@ -10,10 +10,7 @@ describe('TweetService', () => {
         TweetService,
         {
           provide: 'DRIZZLE',
-          useValue: {
-            //select: jest.fn().mockReturnThis(),
-            //from: jest.fn().mockResolvedValue([]),
-          },
+          useValue: {},
         },
       ],
     }).compile();
