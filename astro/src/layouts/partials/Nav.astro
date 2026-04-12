@@ -21,7 +21,7 @@ const mobileClass = 'block py-2 text-gray-700 hover:text-indigo-500';
       <a href="/" class={desktopClass}>Home</a>
       <a href="/tweets" class={desktopClass}>Tweet</a>
       <span>
-        <MenuAuth client:load desktopClass={desktopClass} />
+        <MenuAuth client:load elementClass={desktopClass} callType="desktop" />
       </span>
     </nav>
 
@@ -39,7 +39,10 @@ const mobileClass = 'block py-2 text-gray-700 hover:text-indigo-500';
     class="px-6 pb-4 md:hidden"
     style="display: none;"
   >
-    <a href="#" class={mobileClass}>Home</a>
-    <a href="#" class={mobileClass}>About</a>
+    <a href="/" class={mobileClass}>Home</a>
+    <a href="/tweets" class={mobileClass}>Tweet</a>
+    <span>
+      <MenuAuth client:load elementClass={mobileClass} callType="mobile" />
+    </span>
   </div>
 </header>

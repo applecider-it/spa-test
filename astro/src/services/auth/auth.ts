@@ -60,7 +60,15 @@ const clear = () => {
 /**
  * クライアントに保存されている認証ユーザー取得
  *
- * この構造の為、最初だけは、ここ複数回me()が動く可能性がある。
+ * この関数がいろいろな場所で呼ばれている場合は、
+ * ブラウザを開いた直後だけは、複数回`me()`が動く可能性がある。
+ * 
+ * 呼ばれる場所
+ * 
+ * - layouts/partials/MenuAuth.vue
+ *  - デスクトップ
+ *  - モバイル (`user()`の実行を遅らせることで`me()`は実行されない)
+ * - 各ページごとのisland
  */
 const user = async () => {
   if (authUser || authChecked) return authUser;

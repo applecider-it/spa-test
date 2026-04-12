@@ -26,7 +26,7 @@ function computedClass(toast: Toast) {
 </script>
 
 <template>
-  <div class="fixed top-4 right-4 space-y-2 z-50">
+  <div class="fixed top-[5rem] right-4 space-y-2 z-50">
     <div v-for="toast in toasts" :key="toast.id" :class="computedClass(toast)">
       {{ toast.message }}
     </div>
