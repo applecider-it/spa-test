@@ -1,0 +1,32 @@
+---
+import '@/assets/css/app.css';
+import Nav from './partials/Nav.astro';
+import { ClientRouter } from 'astro:transitions';
+import UiCommon from '@/services/ui/UiCommon.vue';
+import SetupClient from '@/services/app/setup-client.astro';
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Astro Basics</title>
+    <SetupClient />
+    <ClientRouter />
+  </head>
+  <body
+    class="bg-gradient-to-br from-indigo-100 via-white to-blue-100 min-h-screen"
+  >
+    <UiCommon client:load />
+
+    <Nav />
+
+    <div class="pb-40 p-10">
+      <slot />
+    </div>
+  </body>
+</html>

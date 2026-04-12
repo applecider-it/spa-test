@@ -20,6 +20,8 @@ npm run dev
 
 http://localhost:4321/
 
+http://localhost:4321/admin-secret
+
 -----------------------------------
 
 api 
@@ -35,6 +37,15 @@ http://localhost:4000/
 
 セットアップ
 
+
+cd ~/workspace/github/spa-test/astro
+
+npm ci
+
+cp .env.example .env
+
+
+
 cd ~/workspace/github/spa-test/nest
 
 npm ci
@@ -44,13 +55,6 @@ cp .env.example .env
 DB作成
 
 npx drizzle-kit push
-
-
-
-cd ~/workspace/github/spa-test/astro
-
-npm ci
-
 
 
 -----------------------------------
