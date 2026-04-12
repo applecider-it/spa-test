@@ -25,6 +25,7 @@ describe('TweetController', () => {
     controller = module.get<TweetController>(TweetController);
   });
 
+  // サービスが正しくDIされているか確認
   it('should be defined', () => {
     expect(controller).toBeDefined();
   });

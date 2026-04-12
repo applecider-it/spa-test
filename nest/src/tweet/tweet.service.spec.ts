@@ -18,6 +18,7 @@ describe('TweetService', () => {
     service = module.get<TweetService>(TweetService);
   });
 
+  // サービスが正しくDIされているか確認
   it('should be defined', () => {
     expect(service).toBeDefined();
   });

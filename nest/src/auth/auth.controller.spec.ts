@@ -20,6 +20,7 @@ describe('AuthController', () => {
     controller = module.get<AuthController>(AuthController);
   });
 
+  // サービスが正しくDIされているか確認
   it('should be defined', () => {
     expect(controller).toBeDefined();
   });
