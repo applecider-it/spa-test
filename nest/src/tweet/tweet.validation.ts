@@ -9,9 +9,6 @@ import { applyDecorators } from '@nestjs/common';
 /** 内容のバリデーション */
 export function TweetContentValidation() {
   return applyDecorators(
-    Transform(({ value }) =>
-      typeof value === 'string' ? value.trim() : value,
-    ),
     IsString({ message: '内容は文字列で入力してください' }),
     IsNotEmpty({ message: '内容は必須項目です' }),
     Length(1, 10, {

@@ -8,6 +8,8 @@ import FileStore from 'session-file-store';
 
 import { ValidationPipe, BadRequestException } from '@nestjs/common';
 
+import { TrimPipe } from '@/app/TrimPipe';
+
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
@@ -40,6 +42,7 @@ async function bootstrap() {
 
   // validation
   app.useGlobalPipes(
+    new TrimPipe(),
     new ValidationPipe({
       whitelist: true,
       transform: true,
