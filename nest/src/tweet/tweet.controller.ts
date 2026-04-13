@@ -7,9 +7,9 @@ import { TweetContentValidation } from './tweet.validation';
 import { setTimeout } from 'timers/promises';
 
 import { TweetService } from './tweet.service';
-import { AuthService } from '../auth/auth.service';
+import { AuthService } from '@/auth/auth.service';
 
-import { SessionAuthGuard } from '../auth/auth.guard';
+import { SessionAuthGuard } from '@/auth/auth.guard';
 
 class TweetDto {
   @IsNotEmpty({ message: 'idは必須項目です' })

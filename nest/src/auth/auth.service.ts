@@ -2,7 +2,7 @@ import { Inject, Injectable } from '@nestjs/common';
 import type { Session } from 'express-session';
 
 import { eq } from 'drizzle-orm';
-import { users } from '../db/schema';
+import { users } from '@/db/schema';
 
 /**
  * 認証サービス
