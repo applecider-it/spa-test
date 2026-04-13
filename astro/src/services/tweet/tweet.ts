@@ -5,7 +5,7 @@ import { sendRest } from '@/services/api/rest';
  */
 
 /** ツイート一覧取得 */
-const tweets = async () => {
+export const getTweets = async () => {
   const data = {};
   const uri = '/tweet/tweets';
 
@@ -20,7 +20,7 @@ const tweets = async () => {
 };
 
 /** ツイート取得 */
-const tweet = async (id: number) => {
+export const getTweet = async (id: number) => {
   const data = {id};
   const uri = '/tweet/tweet';
 
@@ -32,9 +32,4 @@ const tweet = async (id: number) => {
   } catch (e) {
     console.error(e);
   }
-};
-
-export const Tweet = {
-  tweets,
-  tweet,
 };

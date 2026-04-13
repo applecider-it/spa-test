@@ -3,7 +3,7 @@ import { ref, onMounted } from 'vue';
 import { sendRest } from '@/services/api/rest';
 import { showToast, setIsLoading } from '@/services/ui/message';
 
-import { Tweet } from '@/services/tweet/tweet';
+import { getTweets } from '@/services/tweet/tweet';
 
 const tweets = ref<any[]>([]);
 const content = ref('');
@@ -39,7 +39,7 @@ const handleSubmit = async () => {
 
 /** 一覧 */
 const setTweets = async () => {
-  const res: any = await Tweet.tweets();
+  const res: any = await getTweets();
 
   if (!res) return;
 

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue';
 
-import { Tweet } from '@/services/tweet/tweet';
+import { getTweet } from '@/services/tweet/tweet';
 
 const tweet = ref<any>(null);
 
@@ -13,7 +13,7 @@ onMounted(async () => {
 
   console.log('id', id);
 
-  const res: any = await Tweet.tweet(id);
+  const res: any = await getTweet(id);
 
   if (!res) return;
 
