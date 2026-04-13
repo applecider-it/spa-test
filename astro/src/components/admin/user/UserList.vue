@@ -3,6 +3,8 @@ import { ref, onMounted } from 'vue';
 
 import { getUsers } from '@/services/admin/user/user';
 
+import { Auth } from '@/services/admin/auth/auth';
+
 const users = ref<any[]>([]);
 
 const prefix = import.meta.env.PUBLIC_ADMIN_PREFIX;
@@ -20,6 +22,8 @@ const setUsers = async () => {
 
 onMounted(async () => {
   console.log('users');
+
+  if (!(await Auth.requieAuth())) return;
 
   await setUsers();
 });
