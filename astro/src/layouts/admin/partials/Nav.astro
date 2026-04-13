@@ -20,7 +20,7 @@ const prefix = import.meta.env.PUBLIC_ADMIN_PREFIX;
     <!-- Desktop Menu -->
     <nav class="flex space-x-8 text-gray-700 font-medium">
       <a href={`${prefix}/`} class={desktopClass}>Home</a>
-      <a href={`${prefix}/users/list`} class={desktopClass}>User</a>
+      <a href={`${prefix}/user/users`} class={desktopClass}>User</a>
       <span>
         <MenuAuth client:load elementClass={desktopClass} />
       </span>

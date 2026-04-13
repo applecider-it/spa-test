@@ -1,0 +1,14 @@
+---
+import Layout from '@/layouts/admin/Layout.astro';
+import UserEdit from '@/components/admin/user/UserEdit.vue';
+---
+
+<Layout>
+	Tweets
+
+	<div class="mt-10">
+		<div>
+			<UserEdit client:load />
+		</div>
+	</div>
+</Layout>

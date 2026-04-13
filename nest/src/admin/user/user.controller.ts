@@ -1,0 +1,64 @@
+import { Controller, Post, Body, Req, UseGuards } from '@nestjs/common';
+import type { Request } from 'express';
+import { IsNotEmpty } from 'class-validator';
+
+import { UserNameValidation, UserEmailValidation } from '../../user/user.validation';
+
+import { setTimeout } from 'timers/promises';
+
+import { UserService } from './user.service';
+import { AuthService } from '../auth/auth.service';
+
+import { AdminSessionAuthGuard } from '../auth/auth.guard';
+
+class UserDto {
+  @IsNotEmpty({ message: 'idは必須項目です' })
+  id: number;
+}
+
+class UpdateUserDto {
+  @IsNotEmpty({ message: 'idは必須項目です' })
+  id: number;
+
+  @UserNameValidation()
+  name: string;
+
+  @UserEmailValidation()
+  email: string;
+}
+
+@UseGuards(AdminSessionAuthGuard)
+@Controller('admin-secret/user')
+export class UserController {
+  constructor(
+    private readonly userService: UserService,
+    private readonly authService: AuthService,
+  ) {}
+
+  /** ユーザー一覧 */
+  @Post('users')
+  async users(@Req() req: Request) {
+    return await this.userService.users();
+  }
+
+  /** ユーザー取得 */
+  @Post('user')
+  async user(@Body() body: UserDto, @Req() req: Request) {
+    return await this.userService.user(body.id);
+  }
+
+  /** ユーザー更新 */
+  @Post('update')
+  async update(@Body() body: UpdateUserDto, @Req() req: Request) {
+    //await setTimeout(1000 * 1);
+
+    const updatedUser = await this.userService.updateUser(body.id, body.name, body.email);
+
+    console.log('updatedUser', updatedUser);
+
+    return {
+      status: 'ok',
+      user: updatedUser,
+    };
+  }
+}

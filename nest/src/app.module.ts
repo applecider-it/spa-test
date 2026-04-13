@@ -8,8 +8,11 @@ import { AuthService } from './auth/auth.service';
 import { TweetController } from './tweet/tweet.controller';
 import { TweetService } from './tweet/tweet.service';
 import { DbModule } from './db/db.module';
+
 import { AuthController as AdminAuthController } from './admin/auth/auth.controller';
+import { UserController as AdminUserController } from './admin/user/user.controller';
 import { AuthService as AdminAuthService } from './admin/auth/auth.service';
+import { UserService as AdminUserService } from './admin/user/user.service';
 
 @Module({
   imports: [
@@ -26,6 +29,7 @@ import { AuthService as AdminAuthService } from './admin/auth/auth.service';
 
     // 管理画面
     AdminAuthController,
+    AdminUserController,
   ],
   providers: [
     AppService,
@@ -34,6 +38,7 @@ import { AuthService as AdminAuthService } from './admin/auth/auth.service';
 
     // 管理画面
     AdminAuthService,
+    AdminUserService,
   ],
 })
 export class AppModule {}
