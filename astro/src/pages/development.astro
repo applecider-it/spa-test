@@ -1,6 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import LoginTestArea from '@/components/development/LoginTestArea.vue';
+import AuthTestArea from '@/components/development/AuthTestArea.vue';
 import SendTestArea from '@/components/development/SendTestArea.vue';
 import UIArea from '@/components/development/UIArea.vue';
 
@@ -12,7 +12,7 @@ const sectionClass = "border-2 p-5"
 
 	<div class="space-y-5 mt-10">
 		<div class={sectionClass}>
-			<LoginTestArea client:load />
+			<AuthTestArea client:load />
 		</div>
 		<div class={sectionClass}>
 			<SendTestArea client:load />
