@@ -3,11 +3,13 @@ import { nextTick, ref } from 'vue';
 import { navigate } from 'astro:transitions/client';
 import { showToastNextPage, setIsLoading } from '@/services/ui/message';
 
-import { Auth } from '@/services/auth/auth';
+import { Auth } from '@/services/admin/auth/auth';
 
-const email = ref('test@localhost.com');
-const password = ref('testtest');
+const email = ref('admin@localhost.com');
+const password = ref('adminadmin');
 const errors = ref<any>({});
+
+const prefix = import.meta.env.PUBLIC_ADMIN_PREFIX;
 
 const execLogin = async () => {
   errors.value = {};
@@ -18,7 +20,7 @@ const execLogin = async () => {
     setIsLoading(false);
     if (res) {
       showToastNextPage('ログインしました。');
-      navigate('/');
+      navigate(prefix);
     } else {
       errors.value = {
         email: ['ログインエラー'],

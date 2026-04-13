@@ -1,9 +1,37 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Post, Body, Req } from '@nestjs/common';
+import type { Request } from 'express';
+import { AuthService } from './auth.service';
+import { IsNotEmpty } from 'class-validator';
+
+import { setTimeout } from 'timers/promises';
+
+class LoginDto {
+  @IsNotEmpty({ message: 'emailは必須項目です' })
+  email: string;
+
+  @IsNotEmpty({ message: 'passwordは必須項目です' })
+  password: string;
+}
 
 @Controller('admin-secret/auth')
 export class AuthController {
-    @Get('hello')
-    async getHello(): Promise<string> {
-      return "Hello";
-    }
+  constructor(private readonly authService: AuthService) {}
+
+  @Post('login')
+  async login(@Body() body: LoginDto, @Req() req: Request) {
+    //await setTimeout(1000 * 1);
+    console.log('login', body.email, body.password);
+    return await this.authService.login(req.session, body.email, body.password);
+  }
+
+  @Post('me')
+  async me(@Req() req: Request) {
+    return await this.authService.me(req.session);
+  }
+
+  @Post('logout')
+  logout(@Req() req: Request) {
+    return this.authService.logout(req.session);
+  }
+
 }

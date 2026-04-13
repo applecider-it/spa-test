@@ -3,7 +3,7 @@ import { ref, onMounted } from 'vue';
 import { navigate } from 'astro:transitions/client';
 import { showToastNextPage } from '@/services/ui/message';
 
-import { Auth } from '@/services/auth/auth';
+import { Auth } from '@/services/admin/auth/auth';
 
 type Props = {
   elementClass: string;
@@ -13,12 +13,14 @@ const props = defineProps<Props>();
 
 const user = ref<any>(null);
 
+const prefix = import.meta.env.PUBLIC_ADMIN_PREFIX;
+
 const handleLogout = async () => {
   if (!confirm('ログアウトしますか？')) return;
 
   await Auth.logout();
   showToastNextPage('ログアウトしました。');
-  navigate('/');
+  navigate(prefix);
 }
 
 onMounted(async () => {
@@ -26,9 +28,6 @@ onMounted(async () => {
 
   user.value = await Auth.user();
 });
-
-const prefix = import.meta.env.PUBLIC_ADMIN_PREFIX;
-console.log(prefix);
 </script>
 
 <template>
