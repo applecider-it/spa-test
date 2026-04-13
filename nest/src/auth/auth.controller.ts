@@ -5,6 +5,7 @@ import { IsNotEmpty } from 'class-validator';
 
 import { setTimeout } from 'timers/promises';
 
+/** ログイン処理用DTO */
 class LoginDto {
   @IsNotEmpty({ message: 'emailは必須項目です' })
   email: string;
@@ -13,6 +14,9 @@ class LoginDto {
   password: string;
 }
 
+/**
+ * 認証コントローラー
+ */
 @Controller('auth')
 export class AuthController {
   constructor(private readonly authService: AuthService) {}

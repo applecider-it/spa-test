@@ -11,16 +11,21 @@ import { AuthService } from '@/auth/auth.service';
 
 import { SessionAuthGuard } from '@/auth/auth.guard';
 
+/** ツイート取得用DTO */
 class TweetDto {
   @IsNotEmpty({ message: 'idは必須項目です' })
   id: number;
 }
 
+/** ツイート作成用DTO */
 class StoreTweetDto {
   @TweetContentValidation()
   content: string;
 }
 
+/**
+ * ツイートコントローラー
+ */
 @Controller('tweet')
 export class TweetController {
   constructor(

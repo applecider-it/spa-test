@@ -10,11 +10,13 @@ import { UserService } from './user.service';
 
 import { AdminSessionAuthGuard } from '@/admin/auth/auth.guard';
 
+/** ユーザー取得用DTO */
 class UserDto {
   @IsNotEmpty({ message: 'idは必須項目です' })
   id: number;
 }
 
+/** ユーザー更新用DTO */
 class UpdateUserDto {
   @IsNotEmpty({ message: 'idは必須項目です' })
   id: number;
@@ -26,6 +28,9 @@ class UpdateUserDto {
   email: string;
 }
 
+/**
+ * 管理画面　ユーザー管理コントローラー
+ */
 @UseGuards(AdminSessionAuthGuard)
 @Controller('admin-secret/user')
 export class UserController {

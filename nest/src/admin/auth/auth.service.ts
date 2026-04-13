@@ -5,7 +5,7 @@ import { eq } from 'drizzle-orm';
 import { adminUsers } from '@/db/schema';
 
 /**
- * 認証サービス
+ * 管理画面　認証サービス
  */
 @Injectable()
 export class AuthService {
@@ -18,7 +18,7 @@ export class AuthService {
       .from(adminUsers)
       .where(eq(adminUsers.email, email));
 
-    console.log('adminUsers result', result)
+    console.log('adminUsers result', result);
 
     if (result.length === 0) return { status: 'ng' };
 
@@ -26,6 +26,7 @@ export class AuthService {
 
     if (adminUser.password !== password) return { status: 'ng' };
 
+    // パスワードは保存項目から除外
     delete adminUser.password;
 
     session['adminUser'] = adminUser;

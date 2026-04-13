@@ -2,6 +2,9 @@ import { Inject, Injectable } from '@nestjs/common';
 import { eq, desc } from 'drizzle-orm';
 import { users } from '@/db/schema';
 
+/**
+ * 管理画面　ユーザー管理サービス
+ */
 @Injectable()
 export class UserService {
   constructor(@Inject('DRIZZLE') private db: any) {}

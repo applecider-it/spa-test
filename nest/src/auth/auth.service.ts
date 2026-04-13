@@ -26,6 +26,7 @@ export class AuthService {
 
     if (user.password !== password) return { status: 'ng' };
 
+    // パスワードは保存項目から除外
     delete user.password;
 
     session['user'] = user;

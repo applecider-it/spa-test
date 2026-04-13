@@ -6,7 +6,7 @@
 
 通常のアプリケーションでは、`laravel-app`, `rails-app`のような、MPA+island(Vue)までが無難。
 
-## 実装内容
+## 構成
 
 - Astro (SSG + ClientRouter) + island(Vue)
 - NestのAPIサーバー
@@ -20,6 +20,7 @@
 
 - 認証
 - Twitter
+- ユーザー管理画面
 
 ## 認証管理
 
