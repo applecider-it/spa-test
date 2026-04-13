@@ -33,6 +33,7 @@ onMounted(async () => {
 <template>
   <span>
     <span v-if="user" class="space-x-8">
+      <span :class="elementClass">{{ user.name }}</span>
       <span @click="handleLogout" :class="`${elementClass} cursor-pointer`">Logout</span>
     </span>
 
