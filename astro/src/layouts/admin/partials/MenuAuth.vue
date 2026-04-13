@@ -24,7 +24,7 @@ const handleLogout = async () => {
 }
 
 onMounted(async () => {
-  console.log('menu');
+  console.log('MenuAuth');
 
   user.value = await Auth.user();
 });

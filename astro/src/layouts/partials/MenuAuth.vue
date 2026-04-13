@@ -24,7 +24,7 @@ const handleLogout = async () => {
 }
 
 onMounted(async () => {
-  console.log('menu', props.callType);
+  console.log('MenuAuth', props.callType);
 
   // mobileの処理を遅らせることでAPIの使用回数を減らす
   if (props.callType === 'mobile') await sleep(1000);

@@ -40,18 +40,18 @@ const handleSubmit = async () => {
 };
 
 onMounted(async () => {
-  console.log('user');
+  console.log('UserEdit onMounted');
 
   const params = new URLSearchParams(window.location.search);
   const id = Number(params.get('id'));
 
-  console.log('id', id);
+  console.log('UserEdit params.id', id);
 
   const res: any = await getUser(id);
 
   if (!res) return;
 
-  console.log('user', res);
+  console.log('UserEdit user', res);
 
   user.value = res;
 

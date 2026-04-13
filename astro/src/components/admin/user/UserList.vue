@@ -15,13 +15,13 @@ const setUsers = async () => {
 
   if (!res) return;
 
-  console.log('users', res);
+  console.log('UserList setUsers users', res);
 
   users.value = res;
 };
 
 onMounted(async () => {
-  console.log('users');
+  console.log('UserList onMounted');
 
   if (!(await Auth.requieAuth())) return;
 

@@ -7,8 +7,10 @@ import { Auth } from '@/services/auth/auth';
 
 const email = ref('test@localhost.com');
 const password = ref('testtest');
+
 const errors = ref<any>({});
 
+/** ログイン処理実行 */
 const execLogin = async () => {
   errors.value = {};
 

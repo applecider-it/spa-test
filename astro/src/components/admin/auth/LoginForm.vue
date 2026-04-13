@@ -7,10 +7,12 @@ import { Auth } from '@/services/admin/auth/auth';
 
 const email = ref('admin@localhost.com');
 const password = ref('adminadmin');
+
 const errors = ref<any>({});
 
 const prefix = import.meta.env.PUBLIC_ADMIN_PREFIX;
 
+/** ログイン処理実行 */
 const execLogin = async () => {
   errors.value = {};
 

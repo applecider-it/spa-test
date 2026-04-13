@@ -37,7 +37,6 @@ export default class AuthCtrl {
     const uri = this.loginUrl;
 
     const res = await sendRest<{ status: any }>(uri, data);
-    console.log('res', res);
 
     this.clear();
 
@@ -50,7 +49,6 @@ export default class AuthCtrl {
     const uri = this.logoutUrl;
 
     const res = await sendRest<{ status: string }>(uri, data);
-    console.log('res', res);
 
     this.clear();
   }
@@ -63,7 +61,6 @@ export default class AuthCtrl {
     const uri = this.meUrl;
 
     const res = await sendRest<{ user: any }>(uri, data);
-    console.log('res', res);
 
     return res;
   }
@@ -90,7 +87,7 @@ export default class AuthCtrl {
   async user() {
     if (this.authUser || this.authChecked) return this.authUser;
 
-    console.log('find user');
+    console.log('Auth.user() -> find user');
 
     const res = await this.me();
 

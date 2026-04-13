@@ -13,7 +13,6 @@ export const getUsers = async () => {
 
   try {
     const res = await sendRest<any[]>(uri, data);
-    console.log('res', res);
 
     return res;
   } catch (e) {
@@ -28,7 +27,6 @@ export const getUser = async (id: number) => {
 
   try {
     const res = await sendRest<any[]>(uri, data);
-    console.log('res', res);
 
     return res;
   } catch (e) {
