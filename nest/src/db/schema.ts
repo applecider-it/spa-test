@@ -8,6 +8,11 @@ import {
 } from 'drizzle-orm/pg-core';
 import { sql } from 'drizzle-orm';
 
+/**
+ * DBスキーマ定義
+ */
+
+/** ユーザーテーブル */
 export const users = pgTable('users', {
   id: serial('id').primaryKey(),
   name: text('name').notNull(),
@@ -15,6 +20,7 @@ export const users = pgTable('users', {
   password: text('password').notNull().default(''),
 });
 
+/** ユーザーツイートテーブル */
 export const userTweets = pgTable(
   'user_tweets',
   {
@@ -33,6 +39,7 @@ export const userTweets = pgTable(
   (table) => [index('user_tweets_user_id_idx').on(table.userId)],
 );
 
+/** 管理者テーブル */
 export const adminUsers = pgTable('admin_users', {
   id: serial('id').primaryKey(),
   name: text('name').notNull(),

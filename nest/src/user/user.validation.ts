@@ -2,6 +2,11 @@ import { IsNotEmpty, IsString, Length } from 'class-validator';
 import { Transform } from 'class-transformer';
 import { applyDecorators } from '@nestjs/common';
 
+/**
+ * ユーザーのバリデーション
+ */
+
+/** 名前のバリデーション */
 export function UserNameValidation() {
   return applyDecorators(
     Transform(({ value }) =>
@@ -17,6 +22,7 @@ export function UserNameValidation() {
   );
 }
 
+/** メールアドレスのバリデーション */
 export function UserEmailValidation() {
   return applyDecorators(
     Transform(({ value }) =>

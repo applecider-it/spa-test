@@ -1,13 +1,15 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
+import { DbModule } from './db/db.module';
+
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
+
 import { AuthController } from './auth/auth.controller';
-import { DevelopmentController } from './development/development.controller';
 import { AuthService } from './auth/auth.service';
+import { DevelopmentController } from './development/development.controller';
 import { TweetController } from './tweet/tweet.controller';
 import { TweetService } from './tweet/tweet.service';
-import { DbModule } from './db/db.module';
 
 import { AuthController as AdminAuthController } from './admin/auth/auth.controller';
 import { UserController as AdminUserController } from './admin/user/user.controller';

@@ -1,5 +1,6 @@
 import { CanActivate, ExecutionContext, Injectable } from '@nestjs/common';
 
+/** ユーザーログインガード */
 @Injectable()
 export class SessionAuthGuard implements CanActivate {
   canActivate(context: ExecutionContext): boolean {

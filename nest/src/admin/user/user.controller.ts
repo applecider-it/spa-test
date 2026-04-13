@@ -2,14 +2,13 @@ import { Controller, Post, Body, Req, UseGuards } from '@nestjs/common';
 import type { Request } from 'express';
 import { IsNotEmpty } from 'class-validator';
 
-import { UserNameValidation, UserEmailValidation } from '../../user/user.validation';
+import { UserNameValidation, UserEmailValidation } from '@/user/user.validation';
 
 import { setTimeout } from 'timers/promises';
 
 import { UserService } from './user.service';
-import { AuthService } from '../auth/auth.service';
 
-import { AdminSessionAuthGuard } from '../auth/auth.guard';
+import { AdminSessionAuthGuard } from '@/admin/auth/auth.guard';
 
 class UserDto {
   @IsNotEmpty({ message: 'idは必須項目です' })
@@ -32,7 +31,6 @@ class UpdateUserDto {
 export class UserController {
   constructor(
     private readonly userService: UserService,
-    private readonly authService: AuthService,
   ) {}
 
   /** ユーザー一覧 */

@@ -17,6 +17,7 @@ class LoginDto {
 export class AuthController {
   constructor(private readonly authService: AuthService) {}
 
+  /** ログイン処理 */
   @Post('login')
   async login(@Body() body: LoginDto, @Req() req: Request) {
     //await setTimeout(1000 * 1);
@@ -24,11 +25,13 @@ export class AuthController {
     return await this.authService.login(req.session, body.email, body.password);
   }
 
+  /** 認証処理 */
   @Post('me')
   async me(@Req() req: Request) {
     return await this.authService.me(req.session);
   }
 
+  /** ログアウト処理 */
   @Post('logout')
   logout(@Req() req: Request) {
     return this.authService.logout(req.session);
