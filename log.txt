@@ -75,3 +75,5 @@ nest g module auth
 
 nest g module development
 
+nest g module tweet
+
