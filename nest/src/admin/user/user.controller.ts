@@ -41,6 +41,7 @@ export class UserController {
   /** ユーザー一覧 */
   @Post('users')
   async users(@Req() req: Request) {
+    console.log('req.adminUser', req.adminUser);
     return await this.userService.users();
   }
 

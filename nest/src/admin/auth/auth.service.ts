@@ -32,15 +32,17 @@ export class AuthService {
 
   /** 認証処理 */
   async me(session: Session) {
-    const id = session['authAdminUserId'] || null;
+    const id = session['authAdminUserId'];
+
+    if (!id) {
+      return { user: null };
+    }
 
     const adminUser = await this.db
       .select()
       .from(adminUsers)
       .where(eq(adminUsers.id, id))
       .then((res) => res[0] ?? null);
-
-    console.log('adminUser', adminUser);
 
     return { user: adminUser };
   }

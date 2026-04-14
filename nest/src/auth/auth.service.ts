@@ -44,8 +44,6 @@ export class AuthService {
       .where(eq(users.id, id))
       .then((res) => res[0] ?? null);
 
-    console.log('user', user);
-
     return { user: user };
   }
 
