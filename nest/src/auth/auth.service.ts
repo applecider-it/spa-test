@@ -32,7 +32,11 @@ export class AuthService {
 
   /** 認証処理 */
   async me(session: Session) {
-    const id = session['authUserId'] || null;
+    const id = session['authUserId'];
+
+    if (!id) {
+      return { user: null };
+    }
 
     const user = await this.db
       .select()

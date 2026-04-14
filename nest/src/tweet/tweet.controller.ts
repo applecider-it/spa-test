@@ -51,11 +51,9 @@ export class TweetController {
   async store(@Body() body: StoreTweetDto, @Req() req: Request) {
     //await setTimeout(1000 * 1);
 
-    const me = await this.authService.me(req.session);
+    console.log('user', req.user);
 
-    console.log('store', me);
-
-    const newTweet = await this.tweetService.storeTweet(me.user, body.content);
+    const newTweet = await this.tweetService.storeTweet(req.user, body.content);
 
     console.log('newTweet', newTweet);
 

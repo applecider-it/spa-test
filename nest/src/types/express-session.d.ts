@@ -1,10 +1,19 @@
 import 'express-session';
+import { InferSelectModel } from 'drizzle-orm';
+
+import { users } from '@/db/schema'; 
 
 declare module 'express-session' {
   interface Session {
-    user?: {
-      id: number;
-      name: string;
-    };
+    authUserId?: number;
+    adminAuthUserId?: number;
+  }
+}
+
+declare global {
+  namespace Express {
+    interface Request {
+      user?: InferSelectModel<typeof users>;
+    }
   }
 }

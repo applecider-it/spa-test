@@ -23,7 +23,8 @@ export class TweetService {
       })
       .from(userTweets)
       .innerJoin(users, eq(userTweets.userId, users.id))
-      .orderBy(desc(userTweets.id));
+      .orderBy(desc(userTweets.id))
+      .limit(5);
 
     console.log('result', result);
 
