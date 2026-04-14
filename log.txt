@@ -73,3 +73,5 @@ nest g service admin/auth
 
 nest g module auth
 
+nest g module development
+

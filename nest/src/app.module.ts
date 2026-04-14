@@ -5,7 +5,6 @@ import { DbModule } from './db/db.module';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 
-import { DevelopmentController } from './development/development.controller';
 import { TweetController } from './tweet/tweet.controller';
 import { TweetService } from './tweet/tweet.service';
 
@@ -13,7 +12,9 @@ import { AuthController as AdminAuthController } from './admin/auth/auth.control
 import { UserController as AdminUserController } from './admin/user/user.controller';
 import { AuthService as AdminAuthService } from './admin/auth/auth.service';
 import { UserService as AdminUserService } from './admin/user/user.service';
+
 import { AuthModule } from './auth/auth.module';
+import { DevelopmentModule } from './development/development.module';
 
 @Module({
   imports: [
@@ -24,10 +25,10 @@ import { AuthModule } from './auth/auth.module';
 
     // アプリケーション
     AuthModule,
+    DevelopmentModule,
   ],
   controllers: [
     AppController,
-    DevelopmentController,
     TweetController,
 
     // 管理画面
