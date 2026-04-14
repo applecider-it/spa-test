@@ -14,9 +14,7 @@ describe('DevelopmentController', () => {
           provide: AuthService,
           useValue: {
             // me()のテスト用の結果を返す
-            me: jest.fn().mockResolvedValue({
-              user: { id: 1, name: 'test' },
-            }),
+            me: jest.fn().mockResolvedValue({ id: 1, name: 'test' }),
           },
         },
       ],

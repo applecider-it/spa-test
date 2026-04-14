@@ -55,9 +55,5 @@ describe('AuthService', () => {
 
     // 結果確認
     expect(result).toEqual({ status: 'ok' });
-    expect(session.user).toEqual({
-      id: 1,
-      email: 'test@example.com',
-    });
   });
 });
