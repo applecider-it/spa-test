@@ -9,8 +9,7 @@ export class AdminSessionAuthGuard implements CanActivate {
   async canActivate(context: ExecutionContext): Promise<boolean> {
     const request = context.switchToHttp().getRequest();
 
-    const ret = await this.authService.me(request.session);
-    const adminUser = ret.user;
+    const adminUser = await this.authService.me(request.session);
 
     if (!adminUser) {
       return false;

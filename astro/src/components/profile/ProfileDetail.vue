@@ -5,8 +5,6 @@ import { Auth } from '@/services/auth/auth';
 
 const user = ref<any>(null);
 
-const userByApi = ref<any>(null);
-
 onMounted(async () => {
   console.log('profile');
 
@@ -15,14 +13,6 @@ onMounted(async () => {
   const res: any = await Auth.user();
 
   user.value = res;
-
-  const me: any = await Auth.me();
-
-  console.log('profile', me);
-
-  if (!me) return;
-
-  userByApi.value = me.user;
 });
 </script>
 
@@ -64,12 +54,5 @@ onMounted(async () => {
         </div>
       </div>
     </div>
-  </div>
-
-  <div class="mt-10">me</div>
-  <div v-if="userByApi">
-    <div>id: {{ userByApi.id }}</div>
-    <div>name: {{ userByApi.name }}</div>
-    <div>email: {{ userByApi.email }}</div>
   </div>
 </template>

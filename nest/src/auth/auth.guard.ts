@@ -9,8 +9,7 @@ export class SessionAuthGuard implements CanActivate {
   async canActivate(context: ExecutionContext): Promise<boolean> {
     const request = context.switchToHttp().getRequest();
 
-    const ret = await this.authService.me(request.session);
-    const user = ret.user;
+    const user = await this.authService.me(request.session);
 
     if (!user) {
       return false;

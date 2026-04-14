@@ -53,18 +53,6 @@ export default class AuthCtrl {
     this.clear();
   }
 
-  /** 認証ユーザー取得 */
-  async me() {
-    console.log('Auth.me()');
-
-    const data = {};
-    const uri = this.meUrl;
-
-    const res = await sendRest<{ user: any }>(uri, data);
-
-    return res;
-  }
-
   /** 認証ユーザー変数クリア */
   clear() {
     this.authUser = null;
@@ -87,12 +75,14 @@ export default class AuthCtrl {
   async user() {
     if (this.authUser || this.authChecked) return this.authUser;
 
-    console.log('Auth.user() -> find user');
+    console.log('Auth.me()');
 
-    const res = await this.me();
+    const data = {};
+    const uri = this.meUrl;
 
-    this.authUser = res?.user;
+    const res = await sendRest<{ user: any }>(uri, data);
 
+    this.authUser = res;
     this.authChecked = true;
 
     return this.authUser;

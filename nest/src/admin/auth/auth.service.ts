@@ -35,7 +35,7 @@ export class AuthService {
     const id = session['authAdminUserId'];
 
     if (!id) {
-      return { user: null };
+      return null;
     }
 
     const adminUser = await this.db
@@ -44,7 +44,7 @@ export class AuthService {
       .where(eq(adminUsers.id, id))
       .then((res) => res[0] ?? null);
 
-    return { user: adminUser };
+    return adminUser;
   }
 
   /** ログアウト処理 */

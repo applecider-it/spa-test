@@ -16,13 +16,13 @@ export class DevelopmentController {
   /** 送信テスト */
   @Post('send-test')
   async sendTest(@Body() body: SendTestDto, @Req() req: Request) {
-    const me = await this.authService.me(req.session);
+    const user = await this.authService.me(req.session);
 
-    console.log('sendTest', me)
+    console.log('sendTest', user)
 
     return {
       message: 'Message: ' + body.message,
-      user: me.user,
+      user: user,
     };
   }
 }
