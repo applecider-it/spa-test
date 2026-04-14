@@ -13,29 +13,36 @@ export class AuthService {
 
   /** ログイン処理 */
   async login(session: Session, email: string, password: string) {
-    const result = await this.db
+    const adminUser = await this.db
       .select()
       .from(adminUsers)
-      .where(eq(adminUsers.email, email));
+      .where(eq(adminUsers.email, email))
+      .then((res) => res[0] ?? null);
 
-    console.log('adminUsers result', result);
+    console.log('adminUser', adminUser);
 
-    if (result.length === 0) return { status: 'ng' };
-
-    const adminUser = result[0];
+    if (!adminUser) return { status: 'ng' };
 
     if (adminUser.password !== password) return { status: 'ng' };
 
-    // パスワードは保存項目から除外
-    delete adminUser.password;
+    session['authAdminUserId'] = adminUser.id;
 
-    session['adminUser'] = adminUser;
     return { status: 'ok' };
   }
 
   /** 認証処理 */
   async me(session: Session) {
-    return { user: session['adminUser'] || null };
+    const id = session['authAdminUserId'] || null;
+
+    const adminUser = await this.db
+      .select()
+      .from(adminUsers)
+      .where(eq(adminUsers.id, id))
+      .then((res) => res[0] ?? null);
+
+    console.log('adminUser', adminUser);
+
+    return { user: adminUser };
   }
 
   /** ログアウト処理 */
