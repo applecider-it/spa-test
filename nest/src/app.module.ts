@@ -5,13 +5,12 @@ import { DbModule } from './db/db.module';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 
-import { UserController as AdminUserController } from './admin/user/user.controller';
-import { UserService as AdminUserService } from './admin/user/user.service';
-
 import { AuthModule } from './auth/auth.module';
 import { DevelopmentModule } from './development/development.module';
 import { TweetModule } from './tweet/tweet.module';
+
 import { AuthModule as AdminAuthModule } from './admin/auth/auth.module';
+import { UserModule as AdminUserModule } from './admin/user/user.module';
 
 @Module({
   imports: [
@@ -27,18 +26,9 @@ import { AuthModule as AdminAuthModule } from './admin/auth/auth.module';
 
     // 管理画面
     AdminAuthModule,
+    AdminUserModule,
   ],
-  controllers: [
-    AppController,
-
-    // 管理画面
-    AdminUserController,
-  ],
-  providers: [
-    AppService,
-
-    // 管理画面
-    AdminUserService,
-  ],
+  controllers: [AppController],
+  providers: [AppService],
 })
 export class AppModule {}

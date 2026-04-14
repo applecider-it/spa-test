@@ -79,3 +79,5 @@ nest g module tweet
 
 nest g module admin/auth
 
+nest g module admin/user
+
