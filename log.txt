@@ -67,3 +67,9 @@ nest g controller admin/auth
 
 nest g service admin/auth
 
+-----------------------------------
+
+
+
+nest g module auth
+
