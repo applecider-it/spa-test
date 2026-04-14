@@ -39,7 +39,11 @@ export class AuthService {
     }
 
     const adminUser = await this.db
-      .select()
+      .select({
+        id: adminUsers.id,
+        name: adminUsers.name,
+        email: adminUsers.email,
+      })
       .from(adminUsers)
       .where(eq(adminUsers.id, id))
       .then((res) => res[0] ?? null);
