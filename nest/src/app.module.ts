@@ -5,14 +5,13 @@ import { DbModule } from './db/db.module';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 
-import { AuthController as AdminAuthController } from './admin/auth/auth.controller';
 import { UserController as AdminUserController } from './admin/user/user.controller';
-import { AuthService as AdminAuthService } from './admin/auth/auth.service';
 import { UserService as AdminUserService } from './admin/user/user.service';
 
 import { AuthModule } from './auth/auth.module';
 import { DevelopmentModule } from './development/development.module';
 import { TweetModule } from './tweet/tweet.module';
+import { AuthModule as AdminAuthModule } from './admin/auth/auth.module';
 
 @Module({
   imports: [
@@ -25,19 +24,20 @@ import { TweetModule } from './tweet/tweet.module';
     AuthModule,
     DevelopmentModule,
     TweetModule,
+
+    // 管理画面
+    AdminAuthModule,
   ],
   controllers: [
     AppController,
 
     // 管理画面
-    AdminAuthController,
     AdminUserController,
   ],
   providers: [
     AppService,
 
     // 管理画面
-    AdminAuthService,
     AdminUserService,
   ],
 })
