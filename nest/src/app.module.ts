@@ -12,10 +12,13 @@ import { TweetModule } from './tweet/tweet.module';
 import { AuthModule as AdminAuthModule } from './admin/auth/auth.module';
 import { UserModule as AdminUserModule } from './admin/user/user.module';
 
+import appConfig from '@/config/app.config';
+
 @Module({
   imports: [
     ConfigModule.forRoot({
       isGlobal: true, // ←これ重要（どこでも使える）
+      load: [appConfig],
     }),
     DbModule,
 

@@ -1,12 +1,16 @@
 import { Provider } from '@nestjs/common';
 import { drizzle } from 'drizzle-orm/node-postgres';
 import { Pool } from 'pg';
+import { ConfigService } from '@nestjs/config';
 
 export const DrizzleProvider: Provider = {
   provide: 'DRIZZLE',
-  useFactory: () => {
+  inject: [ConfigService],
+  useFactory: (configService: ConfigService) => {
+    const databaseUrl = configService.get<string>('db.url');
+
     const pool = new Pool({
-      connectionString: process.env.DATABASE_URL,
+      connectionString: databaseUrl,
     });
 
     return drizzle(pool);
