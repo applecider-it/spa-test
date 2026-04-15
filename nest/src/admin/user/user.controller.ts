@@ -4,6 +4,8 @@ import { IsNotEmpty } from 'class-validator';
 
 import { UserNameValidation, UserEmailValidation } from '@/user/user.validation';
 
+import { ADMIN_PREFIX } from '@/config/constants';
+
 import { setTimeout } from 'timers/promises';
 
 import { UserService } from './user.service';
@@ -32,7 +34,7 @@ class UpdateUserDto {
  * 管理画面　ユーザー管理コントローラー
  */
 @UseGuards(AdminSessionAuthGuard)
-@Controller('admin-secret/user')
+@Controller(`${ADMIN_PREFIX}/user`)
 export class UserController {
   constructor(
     private readonly userService: UserService,

@@ -3,6 +3,8 @@ import type { Request } from 'express';
 import { AuthService } from './auth.service';
 import { IsNotEmpty } from 'class-validator';
 
+import { ADMIN_PREFIX } from '@/config/constants';
+
 import { setTimeout } from 'timers/promises';
 
 /** ログイン処理用DTO */
@@ -17,7 +19,7 @@ class LoginDto {
 /**
  * 管理画面　認証コントローラー
  */
-@Controller('admin-secret/auth')
+@Controller(`${ADMIN_PREFIX}/auth`)
 export class AuthController {
   constructor(private readonly authService: AuthService) {}
 
