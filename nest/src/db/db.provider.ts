@@ -7,7 +7,7 @@ export const DrizzleProvider: Provider = {
   provide: 'DRIZZLE',
   inject: [ConfigService],
   useFactory: (configService: ConfigService) => {
-    const databaseUrl = configService.get<string>('db.url');
+    const databaseUrl = configService.get<string>('database.url');
 
     const pool = new Pool({
       connectionString: databaseUrl,

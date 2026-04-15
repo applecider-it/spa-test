@@ -8,16 +8,17 @@ import FileStore from 'session-file-store';
 
 import { ValidationPipe, BadRequestException } from '@nestjs/common';
 
+import { ConfigService } from '@nestjs/config';
+
 import { TrimPipe } from '@/app/TrimPipe';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
+  const configService = app.get(ConfigService);
+
   // CORS（別ポート対応）
-  app.enableCors({
-    origin: true, // リクエスト元のOriginをそのまま許可
-    credentials: true, // ←これ必須
-  });
+  app.enableCors(configService.get('web.cors'));
 
   // cookie
   app.use(cookieParser());
@@ -28,10 +29,10 @@ async function bootstrap() {
   // session
   app.use(
     session({
-      name: 'spatestsess',
+      name: configService.get<string>('session.name'),
       // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-call
       store: new FileStoreSession({}),
-      secret: 'secret-key',
+      secret: configService.get<string>('session.secret') as string,
       resave: false,
       saveUninitialized: false,
       cookie: {
@@ -60,6 +61,6 @@ async function bootstrap() {
     }),
   );
 
-  await app.listen(process.env.PORT ?? 4000);
+  await app.listen(configService.get<number>('web.port') as number);
 }
 bootstrap();
