@@ -5,6 +5,8 @@ import { getUser } from '@/services/admin/user/user';
 import { sendRest } from '@/services/api/rest';
 import { showToast, setIsLoading } from '@/services/ui/message';
 
+import { Auth } from '@/services/admin/auth/auth';
+
 const prefix = import.meta.env.PUBLIC_ADMIN_PREFIX;
 
 const user = ref<any>(null);
@@ -41,6 +43,8 @@ const handleSubmit = async () => {
 
 onMounted(async () => {
   console.log('UserEdit onMounted');
+
+  if (!(await Auth.requieAuth())) return;
 
   const params = new URLSearchParams(window.location.search);
   const id = Number(params.get('id'));
