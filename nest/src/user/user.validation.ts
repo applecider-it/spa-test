@@ -1,4 +1,4 @@
-import { IsNotEmpty, IsString, Length } from 'class-validator';
+import { IsNotEmpty, IsString, Length, IsEmail } from 'class-validator';
 import { applyDecorators, BadRequestException } from '@nestjs/common';
 import { eq, ne, and } from 'drizzle-orm';
 
@@ -31,6 +31,7 @@ export function UserEmailValidation() {
         return `メールアドレスは${args.constraints[0]}〜${args.constraints[1]}文字です`;
       },
     }),
+    IsEmail({}, { message: 'メールアドレスの形式が正しくありません' }),
   );
 }
 
