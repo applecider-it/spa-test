@@ -12,6 +12,10 @@ describe('UserController', () => {
       controllers: [UserController],
       providers: [
         {
+          provide: 'DRIZZLE',
+          useValue: {},
+        },
+        {
           provide: UserService,
           useValue: {},
         },
