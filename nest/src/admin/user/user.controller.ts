@@ -16,14 +16,14 @@ import { UserService } from './user.service';
 
 import { AdminSessionAuthGuard } from '@/admin/auth/auth.guard';
 
-/** ユーザー取得用DTO */
-class UserDto {
+/** ユーザー取得用 */
+class UserRequestBody {
   @IsNotEmpty({ message: 'idは必須項目です' })
   id: number;
 }
 
-/** ユーザー更新用DTO */
-class UpdateUserDto {
+/** ユーザー更新用 */
+class UpdateRequestBody {
   @IsNotEmpty({ message: 'idは必須項目です' })
   id: number;
 
@@ -59,13 +59,13 @@ export class UserController {
 
   /** ユーザー取得 */
   @Post('user')
-  async user(@Body() body: UserDto, @Req() req: Request) {
+  async user(@Body() body: UserRequestBody, @Req() req: Request) {
     return await this.userService.user(body.id);
   }
 
   /** ユーザー更新 */
   @Post('update')
-  async update(@Body() body: UpdateUserDto, @Req() req: Request) {
+  async update(@Body() body: UpdateRequestBody, @Req() req: Request) {
     await body.validateCustom(this.db);
 
     //await setTimeout(1000 * 1);

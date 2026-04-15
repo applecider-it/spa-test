@@ -7,18 +7,17 @@ import { TweetContentValidation } from './tweet.validation';
 import { setTimeout } from 'timers/promises';
 
 import { TweetService } from './tweet.service';
-import { AuthService } from '@/auth/auth.service';
 
 import { SessionAuthGuard } from '@/auth/auth.guard';
 
-/** ツイート取得用DTO */
-class TweetDto {
+/** ツイート取得用 */
+class TweetRequestBody {
   @IsNotEmpty({ message: 'idは必須項目です' })
   id: number;
 }
 
-/** ツイート作成用DTO */
-class StoreTweetDto {
+/** ツイート作成用 */
+class StoreTweetRequestBody {
   @TweetContentValidation()
   content: string;
 }
@@ -30,7 +29,6 @@ class StoreTweetDto {
 export class TweetController {
   constructor(
     private readonly tweetService: TweetService,
-    private readonly authService: AuthService,
   ) {}
 
   /** ツイート一覧 */
@@ -41,14 +39,14 @@ export class TweetController {
 
   /** ツイート取得 */
   @Post('tweet')
-  async tweet(@Body() body: TweetDto, @Req() req: Request) {
+  async tweet(@Body() body: TweetRequestBody, @Req() req: Request) {
     return await this.tweetService.tweet(body.id);
   }
 
   /** ツイート作成 */
   @UseGuards(SessionAuthGuard)
   @Post('store')
-  async store(@Body() body: StoreTweetDto, @Req() req: Request) {
+  async store(@Body() body: StoreTweetRequestBody, @Req() req: Request) {
     //await setTimeout(1000 * 1);
 
     console.log('user', req.user);

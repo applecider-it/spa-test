@@ -4,7 +4,7 @@ import { IsNotEmpty } from 'class-validator';
 
 import { AuthService } from '@/auth/auth.service';
 
-class SendTestDto {
+class SendTestRequestBody {
   @IsNotEmpty({ message: 'messageは必須項目です' })
   message: string;
 }
@@ -15,7 +15,7 @@ export class DevelopmentController {
 
   /** 送信テスト */
   @Post('send-test')
-  async sendTest(@Body() body: SendTestDto, @Req() req: Request) {
+  async sendTest(@Body() body: SendTestRequestBody, @Req() req: Request) {
     const user = await this.authService.me(req.session);
 
     console.log('sendTest', user)

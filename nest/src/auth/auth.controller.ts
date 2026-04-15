@@ -5,8 +5,8 @@ import { IsNotEmpty } from 'class-validator';
 
 import { setTimeout } from 'timers/promises';
 
-/** ログイン処理用DTO */
-class LoginDto {
+/** ログイン処理用 */
+class LoginRequestBody {
   @IsNotEmpty({ message: 'emailは必須項目です' })
   email: string;
 
@@ -23,7 +23,7 @@ export class AuthController {
 
   /** ログイン処理 */
   @Post('login')
-  async login(@Body() body: LoginDto, @Req() req: Request) {
+  async login(@Body() body: LoginRequestBody, @Req() req: Request) {
     //await setTimeout(1000 * 1);
     console.log('login', body.email, body.password);
     return await this.authService.login(req.session, body.email, body.password);
