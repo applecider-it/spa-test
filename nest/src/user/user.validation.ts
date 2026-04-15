@@ -1,6 +1,8 @@
 import { IsNotEmpty, IsString, Length } from 'class-validator';
-import { Transform } from 'class-transformer';
-import { applyDecorators } from '@nestjs/common';
+import { applyDecorators, BadRequestException } from '@nestjs/common';
+import { eq, ne, and } from 'drizzle-orm';
+
+import { users } from '@/db/schema';
 
 /**
  * ユーザーのバリデーション
@@ -30,4 +32,30 @@ export function UserEmailValidation() {
       },
     }),
   );
+}
+
+/** メールアドレスのバリデーション （追加処理） */
+export async function UserEmailCustomValidation(
+  db,
+  id: number | null,
+  email: string,
+) {
+  const conditions: any[] = [];
+
+  conditions.push(eq(users.email, email));
+
+  if (id) conditions.push(ne(users.id, id));
+
+  let query = db.select().from(users).limit(1);
+  if (conditions.length) query = query.where(and(...conditions));
+
+  const user = await query.then((res) => res[0] ?? null);
+
+  if (user) {
+    throw new BadRequestException({
+      errors: {
+        email: ['このメールアドレスは既に使用されています'],
+      },
+    });
+  }
 }

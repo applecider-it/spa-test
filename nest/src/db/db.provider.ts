@@ -13,6 +13,8 @@ export const DrizzleProvider: Provider = {
       connectionString: databaseUrl,
     });
 
-    return drizzle(pool);
+    return drizzle(pool, {
+      logger: true,
+    });
   },
 };

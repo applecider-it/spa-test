@@ -1,8 +1,12 @@
-import { Controller, Post, Body, Req, UseGuards } from '@nestjs/common';
+import { Controller, Post, Body, Req, UseGuards, Inject } from '@nestjs/common';
 import type { Request } from 'express';
 import { IsNotEmpty } from 'class-validator';
 
-import { UserNameValidation, UserEmailValidation } from '@/user/user.validation';
+import {
+  UserNameValidation,
+  UserEmailValidation,
+  UserEmailCustomValidation,
+} from '@/user/user.validation';
 
 import { ADMIN_PREFIX } from '@/config/constants';
 
@@ -28,6 +32,11 @@ class UpdateUserDto {
 
   @UserEmailValidation()
   email: string;
+
+  /** 追加バリデーション */
+  async validateCustom(db: any) {
+    await UserEmailCustomValidation(db, this.id, this.email);
+  }
 }
 
 /**
@@ -37,6 +46,7 @@ class UpdateUserDto {
 @Controller(`${ADMIN_PREFIX}/user`)
 export class UserController {
   constructor(
+    @Inject('DRIZZLE') private db: any,
     private readonly userService: UserService,
   ) {}
 
@@ -56,9 +66,15 @@ export class UserController {
   /** ユーザー更新 */
   @Post('update')
   async update(@Body() body: UpdateUserDto, @Req() req: Request) {
+    await body.validateCustom(this.db);
+
     //await setTimeout(1000 * 1);
 
-    const updatedUser = await this.userService.updateUser(body.id, body.name, body.email);
+    const updatedUser = await this.userService.updateUser(
+      body.id,
+      body.name,
+      body.email,
+    );
 
     console.log('updatedUser', updatedUser);
 
