@@ -61,7 +61,7 @@ cp .env.example .env
 
 DB作成
 
-npx drizzle-kit push
+npx drizzle-kit migrate
 
 
 -----------------------------------

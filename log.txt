@@ -50,6 +50,8 @@ npm install drizzle-orm pg
 npm install -D drizzle-kit
 
 npx drizzle-kit generate
+npx drizzle-kit migrate
+
 npx drizzle-kit push
 
 -----------------------------------

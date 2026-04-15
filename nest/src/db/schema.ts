@@ -16,7 +16,7 @@ import { sql } from 'drizzle-orm';
 export const users = pgTable('users', {
   id: serial('id').primaryKey(),
   name: text('name').notNull(),
-  email: text('email').notNull().default(''),
+  email: text('email').notNull().unique(),
   password: text('password').notNull().default(''),
 });
 
@@ -43,6 +43,6 @@ export const userTweets = pgTable(
 export const adminUsers = pgTable('admin_users', {
   id: serial('id').primaryKey(),
   name: text('name').notNull(),
-  email: text('email').notNull().default(''),
+  email: text('email').notNull().unique(),
   password: text('password').notNull().default(''),
 });
