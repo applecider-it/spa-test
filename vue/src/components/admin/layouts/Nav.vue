@@ -18,7 +18,7 @@ const handleLogout = async () => {
 
   await Auth.logout();
   showToast('ログアウトしました。');
-  location.href = adminPrefix;
+  location.href = `${adminPrefix}/login`;
 };
 
 onMounted(async () => {
@@ -51,7 +51,9 @@ onMounted(async () => {
           :class="desktopClass"
           >Home</RouterLink
         >
-        <RouterLink to="/users" :class="desktopClass">Users</RouterLink>
+        <RouterLink :to="{ name: 'admin:users' }" :class="desktopClass"
+          >Users</RouterLink
+        >
 
         <span v-if="user" class="space-x-8">
           <span :class="desktopClass">{{ user.name }}</span>

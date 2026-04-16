@@ -1,6 +1,6 @@
 import { sendRest } from '@/services/api/rest';
 
-const prefix = import.meta.env.PUBLIC_ADMIN_PREFIX;
+import { adminPrefix } from '@/config/constants';
 
 /**
  * ユーザー管理
@@ -9,7 +9,7 @@ const prefix = import.meta.env.PUBLIC_ADMIN_PREFIX;
 /** ユーザー一覧取得 */
 export const getUsers = async () => {
   const data = {};
-  const uri = `${prefix}/user/users`;
+  const uri = `${adminPrefix}/user/users`;
 
   try {
     const res = await sendRest<any[]>(uri, data);
@@ -23,7 +23,7 @@ export const getUsers = async () => {
 /** ユーザー取得 */
 export const getUser = async (id: number) => {
   const data = {id};
-  const uri = `${prefix}/user/user`;
+  const uri = `${adminPrefix}/user/user`;
 
   try {
     const res = await sendRest<any[]>(uri, data);

@@ -3,6 +3,7 @@ import HomeView from '../views/HomeView.vue';
 import AdminHomeView from '../views/admin/HomeView.vue';
 
 import { Auth } from '@/services/auth/auth';
+import { Auth as AdminAuth } from '@/services/admin/auth/auth';
 import { showToast } from '@/services/ui/message';
 import { adminPrefix } from '@/config/constants';
 
@@ -53,13 +54,25 @@ const router = createRouter({
       path: adminPrefix,
       name: 'admin:home',
       component: AdminHomeView,
-      meta: {},
+      meta: { requiresAdminAuth: true },
     },
     {
       path: `${adminPrefix}/login`,
       name: 'admin:login',
       component: () => import('../views/admin/LoginView.vue'),
       meta: {},
+    },
+    {
+      path: `${adminPrefix}/users`,
+      name: 'admin:users',
+      component: () => import('../views/admin/user/UsersView.vue'),
+      meta: { requiresAdminAuth: true },
+    },
+    {
+      path: `${adminPrefix}/user/:id`,
+      name: 'admin:user',
+      component: () => import('../views/admin/user/UserView.vue'),
+      meta: { requiresAdminAuth: true },
     },
   ],
 });
@@ -69,6 +82,14 @@ router.beforeEach(async (to, from) => {
     showToast('ログイン必須ページです。', 'alert');
     return '/';
   }
+
+  if (to.meta.requiresAdminAuth && !(await AdminAuth.checkAuth())) {
+    showToast('ログイン必須ページです。', 'alert');
+    return {
+      name: 'admin:login',
+    };
+  }
+
   return true;
 });
 
