@@ -8,7 +8,7 @@
 
 ## 構成
 
-- Vue
+- Vue、Vue Router、Vite、Tailwind
 - NestJSのAPIサーバー
 
 ## 技術選定の理由
