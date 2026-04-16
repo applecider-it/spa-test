@@ -1,5 +1,5 @@
 
-cd ~/workspace/github/spa-test/astro
+cd ~/workspace/github/spa-test
 
 
 -----------------------------------

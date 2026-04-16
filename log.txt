@@ -83,3 +83,7 @@ nest g module admin/auth
 
 nest g module admin/user
 
+-----------------------------------
+
+
+npm create vue@latest
