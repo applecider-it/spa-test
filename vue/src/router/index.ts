@@ -1,6 +1,4 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import HomeView from '../views/HomeView.vue';
-import AdminHomeView from '../views/admin/HomeView.vue';
 
 import { Auth } from '@/services/auth/auth';
 import { Auth as AdminAuth } from '@/services/admin/auth/auth';
@@ -13,7 +11,7 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
-      component: HomeView,
+      component: () => import('../views/HomeView.vue'),
       meta: {},
     },
     {
@@ -53,7 +51,7 @@ const router = createRouter({
     {
       path: adminPrefix,
       name: 'admin:home',
-      component: AdminHomeView,
+      component: () => import('../views/admin/HomeView.vue'),
       meta: { requiresAdminAuth: true },
     },
     {
