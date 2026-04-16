@@ -37,6 +37,8 @@ cd ~/workspace/github/spa-test/vue
 
 npm run dev
 
+http://localhost:5173/
+
 -----------------------------------
 
 api 
