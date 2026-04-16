@@ -4,8 +4,6 @@ import { showToastNextPage } from '@/services/ui/message';
 
 /**
  * 認証管理
- *
- * スコープ内変数を使うため、SSRでは利用できないので注意。
  */
 export default class AuthCtrl {
   /** 認証しているユーザー */
