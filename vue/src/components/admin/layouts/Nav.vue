@@ -3,7 +3,9 @@ import { ref, onMounted } from 'vue';
 import { showToast } from '@/services/ui/message';
 import { useRouter } from 'vue-router';
 
-import { Auth } from '@/services/auth/auth';
+import { Auth } from '@/services/admin/auth/auth';
+
+import { adminPrefix } from '@/config/constants';
 
 const user = ref<any>(null);
 
@@ -16,7 +18,7 @@ const handleLogout = async () => {
 
   await Auth.logout();
   showToast('ログアウトしました。');
-  location.href = '/';
+  location.href = adminPrefix;
 };
 
 onMounted(async () => {
@@ -60,7 +62,13 @@ onMounted(async () => {
 
         <span v-else class="space-x-8">
           <span :class="desktopClass">Guest</span>
-          <RouterLink to="/login" :class="desktopClass">Login</RouterLink>
+          <RouterLink
+            :to="{
+              name: 'admin:login',
+            }"
+            :class="desktopClass"
+            >Login</RouterLink
+          >
         </span>
       </nav>
     </div>

@@ -4,8 +4,7 @@ import AdminHomeView from '../views/admin/HomeView.vue';
 
 import { Auth } from '@/services/auth/auth';
 import { showToast } from '@/services/ui/message';
-
-const adminPrefix = '/admin-secret';
+import { adminPrefix } from '@/config/constants';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -54,6 +53,12 @@ const router = createRouter({
       path: adminPrefix,
       name: 'admin:home',
       component: AdminHomeView,
+      meta: {},
+    },
+    {
+      path: `${adminPrefix}/login`,
+      name: 'admin:login',
+      component: () => import('../views/admin/LoginView.vue'),
       meta: {},
     },
   ],
