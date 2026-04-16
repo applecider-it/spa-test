@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue';
-import { showToastNextPage } from '@/services/ui/message';
+import { showToast } from '@/services/ui/message';
 import { sleep } from '@/services/system/time';
 
 import { Auth } from '@/services/auth/auth';
@@ -16,7 +16,7 @@ const handleLogout = async () => {
   if (!confirm('ログアウトしますか？')) return;
 
   await Auth.logout();
-  showToastNextPage('ログアウトしました。');
+  showToast('ログアウトしました。');
 };
 
 onMounted(async () => {

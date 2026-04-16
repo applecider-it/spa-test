@@ -1,5 +1,5 @@
 import { sendRest } from '@/services/api/rest';
-import { showToastNextPage } from '@/services/ui/message';
+import { showToast } from '@/services/ui/message';
 
 /**
  * 認証管理
@@ -90,7 +90,7 @@ export default class AuthCtrl {
     const rec = await this.user();
 
     if (!rec) {
-      showToastNextPage('ログイン必須ページです。', 'alert');
+      showToast('ログイン必須ページです。', 'alert');
       navigate(this.redirectUrl);
       return false;
     }
