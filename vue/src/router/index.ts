@@ -1,8 +1,11 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import HomeView from '../views/HomeView.vue';
+import AdminHomeView from '../views/admin/HomeView.vue';
 
 import { Auth } from '@/services/auth/auth';
 import { showToast } from '@/services/ui/message';
+
+const adminPrefix = '/admin-secret';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -43,6 +46,14 @@ const router = createRouter({
       path: '/tweet/:id',
       name: 'tweet',
       component: () => import('../views/TweetView.vue'),
+      meta: {},
+    },
+
+    // 管理画面
+    {
+      path: adminPrefix,
+      name: 'admin:home',
+      component: AdminHomeView,
       meta: {},
     },
   ],
