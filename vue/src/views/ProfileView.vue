@@ -9,7 +9,7 @@ import ProfileDetail from '@/components/profile/ProfileDetail.vue';
 
     <div class="mt-10">
       <div>
-        <ProfileDetail client:load />
+        <ProfileDetail />
       </div>
     </div>
   </AppLayout>

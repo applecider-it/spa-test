@@ -9,7 +9,7 @@ import UserEdit from '@/components/admin/user/UserEdit.vue';
 
     <div class="mt-10">
       <div>
-        <UserEdit client:load />
+        <UserEdit />
       </div>
     </div>
   </AppLayout>

@@ -9,7 +9,7 @@ import UserList from '@/components/admin/user/UserList.vue';
 
     <div class="mt-10">
       <div>
-        <UserList client:load />
+        <UserList />
       </div>
     </div>
   </AppLayout>
