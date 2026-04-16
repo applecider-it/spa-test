@@ -33,6 +33,18 @@ const router = createRouter({
         requiresAuth: true,
       },
     },
+    {
+      path: '/tweets',
+      name: 'tweets',
+      component: () => import('../views/TweetsView.vue'),
+      meta: {},
+    },
+    {
+      path: '/tweet/:id',
+      name: 'tweet',
+      component: () => import('../views/TweetView.vue'),
+      meta: {},
+    },
   ],
 });
 
