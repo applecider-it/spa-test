@@ -7,27 +7,8 @@ cd ~/workspace/github/spa-test
 port
 
 api: 4000
-astro: 4321
-確認用サーバー: 4322
-
------------------------------------
-
-astro
-
-cd ~/workspace/github/spa-test/astro
-
-npm run dev
-
-http://localhost:4321/
-
-test@localhost.com / testtest
-
-test2@localhost.com / test2test2
-
-
-http://localhost:4321/admin-secret
-
-admin@localhost.com / adminadmin
+vue: 5173
+確認用サーバー: 5174
 
 -----------------------------------
 
@@ -64,11 +45,9 @@ http://localhost:4000/
 セットアップ
 
 
-cd ~/workspace/github/spa-test/astro
+cd ~/workspace/github/spa-test/vue
 
 npm ci
-
-cp .env.example .env
 
 
 
@@ -87,7 +66,7 @@ npx drizzle-kit migrate
 
 ビルド
 
-cd ~/workspace/github/spa-test/astro
+cd ~/workspace/github/spa-test/vue
 
 npm run build
 
@@ -95,24 +74,14 @@ npm run build
 
 確認
 
-cd ~/workspace/github/spa-test/astro
+cd ~/workspace/github/spa-test/vue
 
-php -S localhost:4322 -t ./dist
+php -S localhost:5174 -t ./dist
 
-serve ./dist -l 4322
+serve ./dist -l 5174
 
 
-http://localhost:4322/
-
------------------------------------
-
-不具合
-
-ClientRouterがあるため、tailwindの新しいクラスがページ遷移後に反映されなくなる。
-
-ホットリロードでは機能する。
-
-対処方法は、npm run dev再起動か、ClientRouterを一時的に外す。
+http://localhost:5174/
 
 -----------------------------------
 

@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: ['./index.html', './src/**/*.{astro,html,js,ts,vue}'],
+  content: ['./index.html', './src/**/*.{html,js,ts,vue}'],
   // パージされても残しておきたいクラスを指定
   // 正規表現でまとめて書ける
   safelist: [
