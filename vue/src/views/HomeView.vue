@@ -1,10 +1,17 @@
 <script setup lang="ts">
+import AppLayout from '@/components/layouts/AppLayout.vue';
 </script>
 
 <template>
-  Index
+  <AppLayout>
+    Index
 
-  <div class="p-10">
-    <div><a href="/development" class="app-link-normal">development</a></div>
-  </div>
+    <div class="p-10">
+      <div>
+        <RouterLink to="/development" class="app-link-normal"
+          >development</RouterLink
+        >
+      </div>
+    </div>
+  </AppLayout>
 </template>
