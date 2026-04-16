@@ -1,8 +1,9 @@
-<script setup lang="ts">
-</script>
+<script setup lang="ts"></script>
 
 <template>
   <div class="space-x-5">
-    <a href="/profile" class="app-link-normal">プロフィールページ</a>
+    <RouterLink to="/profile" class="app-link-normal"
+      >プロフィールページ</RouterLink
+    >
   </div>
 </template>

@@ -85,13 +85,11 @@ export default class AuthCtrl {
     return this.authUser;
   }
 
-  /** 認証必須ページ処理 */
-  async requieAuth() {
+  /** 認証確認処理 */
+  async checkAuth() {
     const rec = await this.user();
 
     if (!rec) {
-      showToast('ログイン必須ページです。', 'alert');
-      navigate(this.redirectUrl);
       return false;
     }
 
