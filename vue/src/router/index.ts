@@ -36,13 +36,12 @@ const router = createRouter({
   ],
 });
 
-router.beforeEach(async (to, from, next) => {
+router.beforeEach(async (to, from) => {
   if (to.meta.requiresAuth && !(await Auth.checkAuth())) {
     showToast('ログイン必須ページです。', 'alert');
-    next('/');
-  } else {
-    next();
+    return '/';
   }
+  return true;
 });
 
 export default router;
