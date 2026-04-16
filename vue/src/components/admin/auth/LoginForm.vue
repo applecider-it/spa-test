@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { nextTick, ref } from 'vue';
+import { ref } from 'vue';
 import { useRouter } from 'vue-router';
 import { showToast, setIsLoading } from '@/services/ui/message';
 

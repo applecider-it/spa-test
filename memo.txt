@@ -78,7 +78,7 @@ cd ~/workspace/github/spa-test/vue
 
 php -S localhost:5174 -t ./dist
 
-serve ./dist -l 5174
+serve ./dist -l 5174 -s
 
 
 http://localhost:5174/

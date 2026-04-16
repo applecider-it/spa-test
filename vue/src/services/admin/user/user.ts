@@ -11,25 +11,27 @@ export const getUsers = async () => {
   const data = {};
   const uri = `${adminPrefix}/user/users`;
 
-  try {
-    const res = await sendRest<any[]>(uri, data);
+  const res = await sendRest<any[]>(uri, data);
 
-    return res;
-  } catch (e) {
-    console.error(e);
-  }
+  return res;
 };
 
 /** ユーザー取得 */
 export const getUser = async (id: number) => {
-  const data = {id};
+  const data = { id };
   const uri = `${adminPrefix}/user/user`;
 
-  try {
-    const res = await sendRest<any[]>(uri, data);
+  const res = await sendRest<any[]>(uri, data);
 
-    return res;
-  } catch (e) {
-    console.error(e);
-  }
+  return res;
+};
+
+/** ユーザー更新 */
+export const updateUser = async (id: number, name: string, email: string) => {
+  const data = { id, name, email };
+  const url = `${adminPrefix}/user/update`;
+
+  const res = await sendRest<{ status: string; user?: any }>(url, data);
+
+  return res;
 };

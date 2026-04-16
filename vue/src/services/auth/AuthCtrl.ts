@@ -1,5 +1,4 @@
 import { sendRest } from '@/services/api/rest';
-import { showToast } from '@/services/ui/message';
 
 /**
  * 認証管理
@@ -14,18 +13,15 @@ export default class AuthCtrl {
   private loginUrl;
   private logoutUrl;
   private meUrl;
-  private redirectUrl;
 
   constructor(
     loginUrl: string,
     logoutUrl: string,
     meUrl: string,
-    redirectUrl: string,
   ) {
     this.loginUrl = loginUrl;
     this.logoutUrl = logoutUrl;
     this.meUrl = meUrl;
-    this.redirectUrl = redirectUrl;
   }
 
   /** ログイン処理 */
@@ -64,10 +60,8 @@ export default class AuthCtrl {
    *
    * 呼ばれる場所
    *
-   * - layouts/partials/MenuAuth.vue
-   *  - デスクトップ
-   *  - モバイル (`user()`の実行を遅らせることで`me()`は実行されない)
-   * - 各ページごとのisland
+   * - レイアウト
+   * - 各ページ（利用している場合のみ）
    */
   async user() {
     if (this.authUser || this.authChecked) return this.authUser;

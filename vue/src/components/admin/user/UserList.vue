@@ -3,8 +3,6 @@ import { ref, onMounted } from 'vue';
 
 import { getUsers } from '@/services/admin/user/user';
 
-import { adminPrefix } from '@/config/constants';
-
 const users = ref<any[]>([]);
 
 /** 一覧 */
@@ -43,7 +41,12 @@ onMounted(async () => {
           <td class="app-table-td">{{ user.email }}</td>
           <td class="app-table-td text-right">
             <RouterLink
-              :to="`${adminPrefix}/user/${user.id}`"
+              :to="{
+                name: 'admin:user',
+                params: {
+                  id: user.id,
+                },
+              }"
               class="app-btn-primary"
             >
               更新

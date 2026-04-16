@@ -3,10 +3,7 @@
 
 import { ref } from 'vue';
 
-import {
-  showToast,
-  setIsLoading,
-} from '@/services/ui/message';
+import { showToast, setIsLoading } from '@/services/ui/message';
 import LoadingInline from '@/components/ui/message/LoadingInline.vue';
 
 const cnt = ref<number>(0);
