@@ -5,6 +5,8 @@ import { showToastNextPage } from '@/services/ui/message';
 
 import { Auth } from '@/services/admin/auth/auth';
 
+import { adminPrefix } from '@/config/constants';
+
 type Props = {
   elementClass: string;
 };
@@ -13,14 +15,12 @@ const props = defineProps<Props>();
 
 const user = ref<any>(null);
 
-const prefix = import.meta.env.PUBLIC_ADMIN_PREFIX;
-
 const handleLogout = async () => {
   if (!confirm('ログアウトしますか？')) return;
 
   await Auth.logout();
   showToastNextPage('ログアウトしました。');
-  navigate(prefix);
+  navigate(adminPrefix);
 }
 
 onMounted(async () => {
@@ -39,7 +39,7 @@ onMounted(async () => {
 
     <span v-else class="space-x-8">
       <span :class="elementClass">Guest</span>
-      <a :href="`${prefix}/login`" :class="elementClass">Login</a>
+      <a :href="`${adminPrefix}/login`" :class="elementClass">Login</a>
     </span>
   </span>
 </template>

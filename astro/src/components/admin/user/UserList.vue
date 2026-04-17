@@ -5,9 +5,9 @@ import { getUsers } from '@/services/admin/user/user';
 
 import { Auth } from '@/services/admin/auth/auth';
 
-const users = ref<any[]>([]);
+import { adminPrefix } from '@/config/constants';
 
-const prefix = import.meta.env.PUBLIC_ADMIN_PREFIX;
+const users = ref<any[]>([]);
 
 /** 一覧 */
 const setUsers = async () => {
@@ -47,7 +47,7 @@ onMounted(async () => {
           <td class="app-table-td">{{ user.email }}</td>
           <td class="app-table-td text-right">
             <a
-              :href="`${prefix}/user/user?id=${user.id}`"
+              :href="`${adminPrefix}/user/user?id=${user.id}`"
               class="app-btn-primary"
             >
               更新

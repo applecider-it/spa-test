@@ -1,12 +1,12 @@
 import AuthCtrl from '@/services/auth/AuthCtrl';
 
-const prefix = import.meta.env.PUBLIC_ADMIN_PREFIX;
+import { adminPrefix } from '@/config/constants';
 
 const Auth = new AuthCtrl(
-  `${prefix}/auth/login`,
-  `${prefix}/auth/logout`,
-  `${prefix}/auth/me`,
-  `${prefix}/`,
+  `${adminPrefix}/auth/login`,
+  `${adminPrefix}/auth/logout`,
+  `${adminPrefix}/auth/me`,
+  `${adminPrefix}/`,
 );
 
 export { Auth };

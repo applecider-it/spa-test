@@ -1,16 +1,16 @@
 <script setup lang="ts">
-import { nextTick, ref } from 'vue';
+import { ref } from 'vue';
 import { navigate } from 'astro:transitions/client';
 import { showToastNextPage, setIsLoading } from '@/services/ui/message';
 
 import { Auth } from '@/services/admin/auth/auth';
 
+import { adminPrefix } from '@/config/constants';
+
 const email = ref('admin@localhost.com');
 const password = ref('adminadmin');
 
 const errors = ref<any>({});
-
-const prefix = import.meta.env.PUBLIC_ADMIN_PREFIX;
 
 /** ログイン処理実行 */
 const execLogin = async () => {
@@ -22,7 +22,7 @@ const execLogin = async () => {
     setIsLoading(false);
     if (res) {
       showToastNextPage('ログインしました。');
-      navigate(prefix);
+      navigate(adminPrefix);
     } else {
       errors.value = {
         email: ['ログインエラー'],

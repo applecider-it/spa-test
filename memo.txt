@@ -77,8 +77,6 @@ cd ~/workspace/github/spa-test/astro
 
 npm ci
 
-cp .env.example .env
-
 
 cd ~/workspace/github/spa-test/nest
 

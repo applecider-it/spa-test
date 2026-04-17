@@ -1,15 +1,15 @@
 ---
 import MenuAuth from './MenuAuth.vue';
 
-const desktopClass = 'hover:text-indigo-500';
+import { adminPrefix } from '@/config/constants';
 
-const prefix = import.meta.env.PUBLIC_ADMIN_PREFIX;
+const desktopClass = 'hover:text-indigo-500';
 ---
 
 <header class="bg-gray-100 shadow-md">
   <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
     <!-- Logo -->
-    <a href={`${prefix}/`}>
+    <a href={`${adminPrefix}/`}>
       <div
         class="text-2xl font-bold bg-gradient-to-r from-indigo-500 to-purple-500 bg-clip-text text-transparent"
       >
@@ -19,8 +19,8 @@ const prefix = import.meta.env.PUBLIC_ADMIN_PREFIX;
 
     <!-- Desktop Menu -->
     <nav class="flex space-x-8 text-gray-700 font-medium">
-      <a href={`${prefix}/`} class={desktopClass}>Home</a>
-      <a href={`${prefix}/user/users`} class={desktopClass}>User</a>
+      <a href={`${adminPrefix}/`} class={desktopClass}>Home</a>
+      <a href={`${adminPrefix}/user/users`} class={desktopClass}>User</a>
       <span>
         <MenuAuth client:load elementClass={desktopClass} />
       </span>
