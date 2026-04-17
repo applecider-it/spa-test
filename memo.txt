@@ -152,8 +152,6 @@ nuxtビルド
 
 cd ~/workspace/github/spa-test/nuxt
 
-npm run build
-
 npm run generate
 
 確認
