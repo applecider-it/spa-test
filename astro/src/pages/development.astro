@@ -1,0 +1,24 @@
+---
+import Layout from '../layouts/Layout.astro';
+import AuthTestArea from '@/components/development/AuthTestArea.vue';
+import SendTestArea from '@/components/development/SendTestArea.vue';
+import UIArea from '@/components/development/UIArea.vue';
+
+const sectionClass = "border-2 p-5"
+---
+
+<Layout>
+	開発者向けページ
+
+	<div class="space-y-5 mt-10">
+		<div class={sectionClass}>
+			<AuthTestArea client:load />
+		</div>
+		<div class={sectionClass}>
+			<SendTestArea client:load />
+		</div>
+		<div class={sectionClass}>
+			<UIArea client:load />
+		</div>
+	</div>
+</Layout>

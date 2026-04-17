@@ -1,0 +1,14 @@
+---
+import Layout from '@/layouts/admin/Layout.astro';
+import UserList from '@/components/admin/user/UserList.vue';
+---
+
+<Layout>
+	Users
+
+	<div class="mt-10">
+		<div>
+			<UserList client:load />
+		</div>
+	</div>
+</Layout>

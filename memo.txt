@@ -7,8 +7,12 @@ cd ~/workspace/github/spa-test
 port
 
 api: 4000
+
 vue: 5173
 確認用サーバー: 5174
+
+astro: 4321
+確認用サーバー: 4322
 
 -----------------------------------
 
@@ -26,6 +30,25 @@ test2@localhost.com / test2test2
 
 
 http://localhost:5173/admin-secret
+
+admin@localhost.com / adminadmin
+
+-----------------------------------
+
+astro
+
+cd ~/workspace/github/spa-test/astro
+
+npm run dev
+
+http://localhost:4321/
+
+test@localhost.com / testtest
+
+test2@localhost.com / test2test2
+
+
+http://localhost:4321/admin-secret
 
 admin@localhost.com / adminadmin
 
@@ -50,6 +73,12 @@ cd ~/workspace/github/spa-test/vue
 npm ci
 
 
+cd ~/workspace/github/spa-test/astro
+
+npm ci
+
+cp .env.example .env
+
 
 cd ~/workspace/github/spa-test/nest
 
@@ -64,13 +93,11 @@ npx drizzle-kit migrate
 
 -----------------------------------
 
-ビルド
+vueビルド
 
 cd ~/workspace/github/spa-test/vue
 
 npm run build
-
------------------------------------
 
 確認
 
@@ -82,6 +109,25 @@ serve ./dist -l 5174 -s
 
 
 http://localhost:5174/
+
+-----------------------------------
+
+astroビルド
+
+cd ~/workspace/github/spa-test/astro
+
+npm run build
+
+確認
+
+cd ~/workspace/github/spa-test/astro
+
+php -S localhost:4322 -t ./dist
+
+serve ./dist -l 4322 -s
+
+
+http://localhost:4322/
 
 -----------------------------------
 
