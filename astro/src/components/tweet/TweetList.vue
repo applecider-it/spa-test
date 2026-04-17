@@ -1,9 +1,8 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue';
-import { sendRest } from '@/services/api/rest';
 import { showToast, setIsLoading } from '@/services/ui/message';
 
-import { getTweets } from '@/services/tweet/tweet';
+import { getTweets, storeTweet } from '@/services/tweet/tweet';
 
 const tweets = ref<any[]>([]);
 const content = ref('');
@@ -11,14 +10,11 @@ const errors = ref<any>({});
 
 /** 送信時 */
 const handleSubmit = async () => {
-  const data = { content: content.value };
-  const url = '/tweet/store';
-
   errors.value = {};
 
   setIsLoading(true);
   try {
-    const res = await sendRest<{ status: string; tweet?: any }>(url, data);
+    const res = await storeTweet(content.value);
     setIsLoading(false);
 
     console.log('res', res);
