@@ -2,12 +2,11 @@
 import { ref, onMounted } from 'vue';
 
 import { getUser } from '@/services/admin/user/user';
-import { sendRest } from '@/services/api/rest';
 import { showToast, setIsLoading } from '@/services/ui/message';
 
 import { Auth } from '@/services/admin/auth/auth';
 
-const prefix = import.meta.env.PUBLIC_ADMIN_PREFIX;
+import { updateUser } from '@/services/admin/user/user';
 
 const user = ref<any>(null);
 
@@ -18,14 +17,11 @@ const errors = ref<any>({});
 
 /** 送信時 */
 const handleSubmit = async () => {
-  const data = { id: user.value.id, name: name.value, email: email.value };
-  const url = `${prefix}/user/update`;
-
   errors.value = {};
 
   setIsLoading(true);
   try {
-    const res = await sendRest<{ status: string; user?: any }>(url, data);
+    const res = await updateUser(user.value.id, name.value, email.value);
     setIsLoading(false);
 
     console.log('res', res);
