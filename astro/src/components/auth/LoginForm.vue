@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { nextTick, ref } from 'vue';
+import { ref } from 'vue';
 import { navigate } from 'astro:transitions/client';
 import { showToastNextPage, setIsLoading } from '@/services/ui/message';
 
