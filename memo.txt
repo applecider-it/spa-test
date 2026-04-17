@@ -141,7 +141,7 @@ cd ~/workspace/github/spa-test/astro
 
 php -S localhost:4322 -t ./dist
 
-serve ./dist -l 4322 -s
+serve ./dist -l 4322
 
 
 http://localhost:4322/
@@ -160,7 +160,7 @@ cd ~/workspace/github/spa-test/nuxt
 
 php -S localhost:3001 -t ./.output/public
 
-serve ./.output/public -l 3001 -s
+serve ./.output/public -l 3001
 
 
 http://localhost:3001/

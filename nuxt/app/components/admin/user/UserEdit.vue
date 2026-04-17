@@ -6,6 +6,8 @@ import { showToast, setIsLoading } from '@/services/ui/message';
 
 import { updateUser } from '@/services/admin/user/user';
 
+const route = useRoute();
+
 const user = ref<any>(null);
 
 const name = ref('');
@@ -35,24 +37,30 @@ const handleSubmit = async () => {
   }
 };
 
+// ビルド後に、リロードしたときに、onMountedでは、route.query.idが取得できないための措置
+watch(
+  () => route.query.id,
+  async (id) => {
+    if (!id) return;
+
+    console.log('UserEdit params.id', id);
+
+    const res: any = await getUser(Number(id));
+
+    if (!res) return;
+
+    console.log('UserEdit user', res);
+
+    user.value = res;
+
+    name.value = res.name;
+    email.value = res.email;
+  },
+  { immediate: true },
+);
+
 onMounted(async () => {
   console.log('UserEdit onMounted');
-
-  const params = new URLSearchParams(window.location.search);
-  const id = Number(params.get('id'));
-
-  console.log('UserEdit params.id', id);
-
-  const res: any = await getUser(id);
-
-  if (!res) return;
-
-  console.log('UserEdit user', res);
-
-  user.value = res;
-
-  name.value = res.name;
-  email.value = res.email;
 });
 </script>
 

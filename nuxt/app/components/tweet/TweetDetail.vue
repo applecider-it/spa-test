@@ -5,21 +5,29 @@ import { getTweet } from '@/services/tweet/tweet';
 
 const tweet = ref<any>(null);
 
+const route = useRoute();
+
+// ビルド後に、リロードしたときに、onMountedでは、route.query.idが取得できないための措置
+watch(
+  () => route.query.id,
+  async (id) => {
+    if (!id) return
+
+    console.log('id', id);
+
+    const res: any = await getTweet(Number(id));
+
+    if (!res) return;
+
+    console.log('tweet', res);
+
+    tweet.value = res;
+  },
+  { immediate: true }
+)
+
 onMounted(async () => {
-  console.log('tweet');
-
-  const params = new URLSearchParams(window.location.search);
-  const id = Number(params.get('id'));
-
-  console.log('id', id);
-
-  const res: any = await getTweet(id);
-
-  if (!res) return;
-
-  console.log('tweet', res);
-
-  tweet.value = res;
+  console.log('tweets');
 });
 </script>
 
