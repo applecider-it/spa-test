@@ -1,15 +1,13 @@
+<script setup lang="ts">
+import Nav from '@/components/admin/layouts/Nav.vue';
+</script>
+
 <template>
   <div>
-    <header class="p-4 bg-blue-500 text-white">
-      Adminヘッダー
-    </header>
+    <Nav />
 
-    <main class="p-6">
+    <div class="pb-40 p-10">
       <slot />
-    </main>
-
-    <footer class="p-4 bg-gray-100">
-      フッター
-    </footer>
+    </div>
   </div>
 </template>
