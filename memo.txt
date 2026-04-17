@@ -54,6 +54,25 @@ admin@localhost.com / adminadmin
 
 -----------------------------------
 
+nuxt
+
+cd ~/workspace/github/spa-test/nuxt
+
+npm run dev
+
+http://localhost:3000/
+
+test@localhost.com / testtest
+
+test2@localhost.com / test2test2
+
+
+http://localhost:3000/admin-secret
+
+admin@localhost.com / adminadmin
+
+-----------------------------------
+
 api 
 
 
