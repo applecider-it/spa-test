@@ -10,6 +10,10 @@
 
 MPA+island(Vue)は、最初から正解にいるという感じになる。
 
+技術的に可能と実用的は別という感じになる。
+
+ただし、+island(Vue)がないMPAも状況次第では不正解の場合もある。
+
 ## 構成
 
 - Vue、Vue Router、Vite、Tailwind
@@ -18,7 +22,7 @@ MPA+island(Vue)は、最初から正解にいるという感じになる。
 
 ## 技術選定の理由
 
-- Node SSRは、危なっかしいので、Vue, Astro (SSG)を選択。（同じ理由で、Node SSRを使う場合はInertiaもおすすめできません。）
+- Node SSRは、node_modulesの更新後のスレッドセーフの安全性の担保が必要になり、危なっかしいので、Vue, Astro (SSG)を選択。（同じ理由で、Node SSRを使う場合はInertiaもおすすめできません。）
 - 認証は安全性を優先してjwtトークンではなくセッションを選択。
 
 ## 機能
