@@ -6,7 +6,7 @@
 
 通常のアプリケーションでは、`laravel-app`, `rails-app`のような、MPA+island(Vue)までが無難。
 
-実装例を試せばわかると思うけど、SPA（AstroをSPA的に使う場合も含む）は、どうあがいても正解が見えてこない。
+実装例を試せばわかると思うけど、SPA的な実装（SPA, Node SSR, Node SSG）は、どうあがいても正解が見えてこない。
 
 MPA+island(Vue)は、最初から正解にいるという感じになる。
 
