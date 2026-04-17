@@ -148,6 +148,27 @@ http://localhost:4322/
 
 -----------------------------------
 
+nuxtビルド
+
+cd ~/workspace/github/spa-test/nuxt
+
+npm run build
+
+npm run generate
+
+確認
+
+cd ~/workspace/github/spa-test/nuxt
+
+php -S localhost:3001 -t ./.output/public
+
+serve ./.output/public -l 3001 -s
+
+
+http://localhost:3001/
+
+-----------------------------------
+
 テスト
 
 cd ~/workspace/github/spa-test/nest
