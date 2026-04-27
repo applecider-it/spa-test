@@ -14,6 +14,20 @@ vue: 5173
 astro: 4321
 確認用サーバー: 4322
 
+nuxt: 3000
+確認用サーバー: 3001
+
+-----------------------------------
+
+api 
+
+
+cd ~/workspace/github/spa-test/nest
+
+npm run start:dev
+
+http://localhost:4000/
+
 -----------------------------------
 
 vue
@@ -73,17 +87,6 @@ admin@localhost.com / adminadmin
 
 -----------------------------------
 
-api 
-
-
-cd ~/workspace/github/spa-test/nest
-
-npm run start:dev
-
-http://localhost:4000/
-
------------------------------------
-
 セットアップ
 
 
@@ -93,6 +96,11 @@ npm ci
 
 
 cd ~/workspace/github/spa-test/astro
+
+npm ci
+
+
+cd ~/workspace/github/spa-test/nuxt
 
 npm ci
 
