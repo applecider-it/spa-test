@@ -5,13 +5,21 @@ import { Auth as AdminAuth } from '@/services/admin/auth/auth';
 import { showToast } from '@/services/ui/message';
 import { adminPrefix } from '@/config/constants';
 
+import { ref } from 'vue';
+
+export const loading = ref(false);
+
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
       path: '/',
       name: 'home',
-      component: () => import('../views/HomeView.vue'),
+      component: async() => {
+        //await new Promise(resolve => setTimeout(resolve, 3000));
+        const HomeView = import('../views/HomeView.vue')
+        return HomeView;
+      },
       meta: {},
     },
     {
@@ -76,6 +84,9 @@ const router = createRouter({
 });
 
 router.beforeEach(async (to, from) => {
+  console.log('遷移開始');
+  loading.value = true;
+
   if (to.meta.requiresAuth && !(await Auth.checkAuth())) {
     showToast('ログイン必須ページです。', 'alert');
     return '/';
@@ -87,6 +98,13 @@ router.beforeEach(async (to, from) => {
       name: 'admin:login',
     };
   }
+
+  return true;
+});
+
+router.afterEach(async (to, from) => {
+  console.log('遷移終了');
+  loading.value = false;
 
   return true;
 });
