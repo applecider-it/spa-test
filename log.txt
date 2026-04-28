@@ -93,3 +93,24 @@ npm install -D tailwindcss@^3.4.18 postcss autoprefixer
 npx tailwindcss init -p
 
 npm install axios
+
+-----------------------------------
+
+
+npm install @nuxt/content
+
+sudo apt update
+sudo apt install -y build-essential python3 make g++
+
+npm install -g node-gyp
+
+rm -rf node_modules package-lock.json
+
+npm install
+
+mkdir -p content/posts
+
+touch content/posts/hello.md
+
+rm -rf .nuxt .output node_modules/.cache
+npm run dev

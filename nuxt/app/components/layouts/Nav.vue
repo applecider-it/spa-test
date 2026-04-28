@@ -39,6 +39,7 @@ onMounted(async () => {
       <nav class="hidden md:flex space-x-8 text-gray-700 font-medium">
         <NuxtLink to="/" :class="desktopClass">Home</NuxtLink>
         <NuxtLink to="/tweets" :class="desktopClass">Tweet</NuxtLink>
+        <NuxtLink to="/posts" :class="desktopClass">Post</NuxtLink>
 
         <span v-if="user" class="space-x-8">
           <NuxtLink to="/profile" :class="desktopClass">{{ user.name }}</NuxtLink>

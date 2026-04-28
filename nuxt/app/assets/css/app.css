@@ -64,4 +64,23 @@
   .app-table-td {
     @apply px-6 py-4 whitespace-nowrap;
   }
+
+  /* 投稿内容 */
+  .app-post-content-container {
+    h1 {
+      @apply text-gray-500 text-xl my-4;
+    }
+
+    h2 {
+      @apply text-gray-500 text-lg my-3;
+    }
+
+    li {
+      @apply text-gray-400 ml-2;
+    }
+
+    img {
+      @apply border-4 my-5;
+    }
+  }
 }
