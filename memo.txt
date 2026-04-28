@@ -85,6 +85,17 @@ http://localhost:3000/admin-secret
 
 admin@localhost.com / adminadmin
 
+----
+
+止めても、port 3000が解放されなくなることがある
+
+
+対処方法
+
+lsof -i :3000
+
+kill -9 <PID>
+
 -----------------------------------
 
 セットアップ
