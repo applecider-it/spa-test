@@ -17,6 +17,7 @@ MPA+island(Vue)は、最初から正解にいるという感じになる。
 ## メイン
 
 - [設計](./documents/design.md)
+- [評価](./documents/evaluation.md)
 
 ## 機能
 
