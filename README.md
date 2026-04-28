@@ -27,6 +27,6 @@ MPA+island(Vue)は、最初から正解にいるという感じになる。
 
 ## リンク
 
-- [Astro (SSG)](./astro/documents/index.md)
+- [Astro Webアプリ](./astro/documents/index.md)
 
 
