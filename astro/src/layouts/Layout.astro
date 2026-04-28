@@ -4,6 +4,7 @@ import Nav from './partials/Nav.astro';
 import { ClientRouter } from 'astro:transitions';
 import AppCommon from '@/services/app/AppCommon.vue';
 import SetupClient from '@/services/app/setup-client.astro';
+import Loading from '@/components/app/Loading.vue';
 ---
 
 <!doctype html>
@@ -23,10 +24,17 @@ import SetupClient from '@/services/app/setup-client.astro';
   >
     <AppCommon client:load />
 
+    <Loading client:load />
+
     <Nav />
 
     <div class="pb-40 p-10">
       <slot />
     </div>
+
+    <script>
+      import { setupLoading } from '@/services/app/loading';
+      setupLoading();
+    </script>
   </body>
 </html>
