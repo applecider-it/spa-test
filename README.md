@@ -25,6 +25,7 @@ MPA+island(Vue)は、最初から正解にいるという感じになる。
 - [認証](./documents/auth.md)
 - Twitter
 - ユーザー管理画面
+- ブログ機能(Nuxtのみ)
 
 ## リンク
 
