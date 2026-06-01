@@ -1,6 +1,6 @@
 ---
 import '@/assets/css/app.css';
-import Nav from './partials/Nav.astro';
+import Nav from './partials/Nav.vue';
 import { ClientRouter } from 'astro:transitions';
 import AppCommon from '@/services/app/AppCommon.vue';
 import SetupClient from '@/services/app/setup-client.astro';
@@ -23,7 +23,7 @@ import SetupClient from '@/services/app/setup-client.astro';
   >
     <AppCommon client:load />
 
-    <Nav />
+    <Nav client:load />
 
     <div class="pb-40 p-10">
       <slot />
