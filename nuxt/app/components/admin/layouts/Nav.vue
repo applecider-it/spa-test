@@ -41,19 +41,19 @@ onMounted(async () => {
           >Users</NuxtLink
         >
 
-        <span v-if="user" class="space-x-8">
+        <template v-if="user">
           <span :class="desktopClass">{{ user.name }}</span>
           <span @click="handleLogout" :class="`${desktopClass} cursor-pointer`"
             >Logout</span
           >
-        </span>
+        </template>
 
-        <span v-else class="space-x-8">
+        <template v-else>
           <span :class="desktopClass">Guest</span>
           <NuxtLink :to="`${adminPrefix}/login`" :class="desktopClass"
             >Login</NuxtLink
           >
-        </span>
+        </template>
       </nav>
     </div>
   </header>

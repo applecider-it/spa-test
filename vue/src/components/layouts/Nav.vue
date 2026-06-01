@@ -44,17 +44,17 @@ onMounted(async () => {
         <RouterLink to="/" :class="desktopClass">Home</RouterLink>
         <RouterLink to="/tweets" :class="desktopClass">Tweet</RouterLink>
 
-        <span v-if="user" class="space-x-8">
+        <template v-if="user">
           <RouterLink to="/profile" :class="desktopClass">{{ user.name }}</RouterLink>
           <span @click="handleLogout" :class="`${desktopClass} cursor-pointer`"
             >Logout</span
           >
-        </span>
+        </template>
 
-        <span v-else class="space-x-8">
+        <template v-else>
           <span :class="desktopClass">Guest</span>
           <RouterLink to="/login" :class="desktopClass">Login</RouterLink>
-        </span>
+        </template>
       </nav>
 
       <!-- Mobile Button -->

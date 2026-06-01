@@ -7,9 +7,9 @@ import { Auth } from '@/services/admin/auth/auth';
 
 import { adminPrefix } from '@/config/constants';
 
-const desktopClass = 'hover:text-indigo-500';
-
 const user = ref<any>(null);
+
+const desktopClass = 'hover:text-indigo-500';
 
 const handleLogout = async () => {
   if (!confirm('ログアウトしますか？')) return;
@@ -20,8 +20,6 @@ const handleLogout = async () => {
 }
 
 onMounted(async () => {
-  console.log('MenuAuth');
-
   user.value = await Auth.user();
 });
 </script>

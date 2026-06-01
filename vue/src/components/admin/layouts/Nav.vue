@@ -55,14 +55,14 @@ onMounted(async () => {
           >Users</RouterLink
         >
 
-        <span v-if="user" class="space-x-8">
+        <template v-if="user">
           <span :class="desktopClass">{{ user.name }}</span>
           <span @click="handleLogout" :class="`${desktopClass} cursor-pointer`"
             >Logout</span
           >
-        </span>
+        </template>
 
-        <span v-else class="space-x-8">
+        <template v-else>
           <span :class="desktopClass">Guest</span>
           <RouterLink
             :to="{
@@ -71,7 +71,7 @@ onMounted(async () => {
             :class="desktopClass"
             >Login</RouterLink
           >
-        </span>
+        </template>
       </nav>
     </div>
   </header>

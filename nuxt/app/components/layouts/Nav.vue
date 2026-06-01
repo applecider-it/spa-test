@@ -41,17 +41,17 @@ onMounted(async () => {
         <NuxtLink to="/tweets" :class="desktopClass">Tweet</NuxtLink>
         <NuxtLink to="/posts/1" :class="desktopClass">Post</NuxtLink>
 
-        <span v-if="user" class="space-x-8">
+        <template v-if="user">
           <NuxtLink to="/profile" :class="desktopClass">{{ user.name }}</NuxtLink>
           <span @click="handleLogout" :class="`${desktopClass} cursor-pointer`"
             >Logout</span
           >
-        </span>
+        </template>
 
-        <span v-else class="space-x-8">
+        <template v-else>
           <span :class="desktopClass">Guest</span>
           <NuxtLink to="/login" :class="desktopClass">Login</NuxtLink>
-        </span>
+        </template>
       </nav>
 
       <!-- Mobile Button -->
