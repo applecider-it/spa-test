@@ -14,6 +14,8 @@ MPA+island(Vue)は、最初から正解にいるという感じになる。
 
 Node SSRには、[Node SSRの危険性](./nodessr.md)があるため、除外したほうがいいので、SPAかNode SSGだけを想定して考えてみる。
 
+評価から、reactを除外している理由は、[技術選定の理由](./selection.md)参照。
+
 SEOが不要な場合は、SPAだと、JSがクライアントのみになり構造がシンプルになるので、比較的管理しやすい。
 
 SEOが必要な場合は、Node SSGになる。

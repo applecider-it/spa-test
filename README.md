@@ -5,6 +5,7 @@
 あくまで実装例で、利用は非推奨です。
 
 - [設計](./documents/design.md)
+- [技術選定の理由](./documents/selection.md)
 - [Node SSRの危険性の説明](./documents/nodessr.md)
 - [評価](./documents/evaluation.md)
 
