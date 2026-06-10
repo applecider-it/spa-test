@@ -10,6 +10,8 @@ Node SSRは、危なっかしいので、Nuxt (SSG), Vue, Astro (SSG)を選択�
 
 認証は安全性を優先してjwtトークンではなくセッションを選択。
 
+SPAは、JSを多用するため、コードを潜り込ませる隙も増えるので、http onlyのクッキーを使うのは、ほとんど必須だと思う。
+
 ## reactを使わない理由
 
 なぜreactを使わないかは`docker-test`参照。
