@@ -9,7 +9,6 @@
 - [Node SSRの危険性の説明](./documents/nodessr.md)
 - [SEO対策の現実](./documents/seo.md)
 - [新しい技術](./documents/new-technology.md)
-- [Javascriptバリデーションを使っていない理由](./documents/validation.md)
 - [評価](./documents/evaluation.md)
 
 ## メイン
