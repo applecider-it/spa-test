@@ -10,6 +10,7 @@
 - [SEO対策の現実](./documents/seo.md)
 - [新しい技術](./documents/new-technology.md)
 - [トレンドを追うことの限界](./documents/trend.md)
+- [エッジサーバー、CDN構成](./documents/edge.md)
 - [評価](./documents/evaluation.md)
 
 ## メイン
