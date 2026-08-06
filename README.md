@@ -28,5 +28,6 @@
 ## リンク
 
 - [Astro Webアプリ](./astro/documents/index.md)
+- [NuxtJS Webアプリ](./nuxt/documents/index.md)
 
 
