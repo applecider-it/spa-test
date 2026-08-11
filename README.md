@@ -11,6 +11,7 @@
 - [新しい技術](./documents/new-technology.md)
 - [トレンドを追うことの限界](./documents/trend.md)
 - [エッジサーバー、CDN構成](./documents/edge.md)
+- [運用](./documents/operation.md)
 - [評価](./documents/evaluation.md)
 
 ## メイン
