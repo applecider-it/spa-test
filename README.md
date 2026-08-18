@@ -12,6 +12,7 @@
 - [トレンドを追うことの限界](./documents/trend.md)
 - [エッジサーバー、CDN構成](./documents/edge.md)
 - [運用](./documents/operation.md)
+- [現在の状況をまとめてみる](./documents/situation.md)
 - [評価](./documents/evaluation.md)
 
 ## メイン
