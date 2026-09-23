@@ -1,0 +1,116 @@
+
+npm create next-app@latest next
+
+npm install axios
+
+npm install velite
+
+npm create nuxt@latest nuxt
+
+npm install -D @nuxtjs/tailwindcss
+
+-----------------------------------
+
+npm i -g @nestjs/cli
+nest new myapp
+
+npm install express-session cookie-parser
+npm install -D @types/express-session @types/cookie-parser
+
+nest g controller auth
+
+nest g controller development
+
+nest g service auth
+
+npm install -g serve
+
+-----------------------------------
+
+npm create astro@latest
+
+
+npm install -D tailwindcss@^3.4.18 postcss autoprefixer
+
+npx tailwindcss init -p
+
+npx astro add vue
+
+npm install axios
+
+-----------------------------------
+
+nest g controller tweet
+
+nest g service tweet
+
+npm install @nestjs/config
+
+npm install drizzle-orm pg
+npm install -D drizzle-kit
+
+npx drizzle-kit generate
+npx drizzle-kit migrate
+
+npx drizzle-kit push
+
+-----------------------------------
+
+npm install class-validator class-transformer
+
+npm install alpinejs
+
+npm i --save-dev @types/alpinejs
+
+-----------------------------------
+
+
+nest g controller admin/auth
+
+nest g service admin/auth
+
+-----------------------------------
+
+
+
+nest g module auth
+
+nest g module development
+
+nest g module tweet
+
+nest g module admin/auth
+
+nest g module admin/user
+
+-----------------------------------
+
+
+npm create vue@latest
+
+npm install -D tailwindcss@^3.4.18 postcss autoprefixer
+
+npx tailwindcss init -p
+
+npm install axios
+
+-----------------------------------
+
+
+npm install @nuxt/content
+
+sudo apt update
+sudo apt install -y build-essential python3 make g++
+
+npm install -g node-gyp
+
+rm -rf node_modules package-lock.json
+
+npm install
+
+mkdir -p content/posts
+
+touch content/posts/hello.md
+
+rm -rf .nuxt .output node_modules/.cache
+npm run dev

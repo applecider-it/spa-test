@@ -1,0 +1,25 @@
+import { Test, TestingModule } from '@nestjs/testing';
+import { TweetService } from './tweet.service';
+
+describe('TweetService', () => {
+  let service: TweetService;
+
+  beforeEach(async () => {
+    const module: TestingModule = await Test.createTestingModule({
+      providers: [
+        TweetService,
+        {
+          provide: 'DRIZZLE',
+          useValue: {},
+        },
+      ],
+    }).compile();
+
+    service = module.get<TweetService>(TweetService);
+  });
+
+  // サービスが正しくDIされているか確認
+  it('should be defined', () => {
+    expect(service).toBeDefined();
+  });
+});
